@@ -1351,7 +1351,7 @@ var ChomskyModule = /** @class */ (function () {
 /*!***************************************************!*\
   !*** ./dist/novo-elements/fesm5/novo-elements.js ***!
   \***************************************************/
-/*! exports provided: NovoAceEditorModule, NovoPipesModule, NovoButtonModule, NovoLoadingModule, NovoCardModule, NovoCalendarModule, NovoToastModule, NovoTooltipModule, NovoHeaderModule, NovoTabModule, NovoTilesModule, NovoModalModule, NovoQuickNoteModule, NovoRadioModule, NovoDropdownModule, NovoSelectModule, NovoListModule, NovoSwitchModule, NovoSearchBoxModule, NovoDragulaModule, NovoSliderModule, NovoPickerModule, NovoChipsModule, NovoDatePickerModule, NovoDatePickerElement, NovoTimePickerModule, NovoDateTimePickerModule, NovoNovoCKEditorModule, NovoTipWellModule, NovoTableModule, NovoValueModule, NovoTableMode, NovoIconModule, NovoExpansionModule, NovoStepperModule, NovoTableExtrasModule, NovoFormModule, NovoDynamicFormElement, NovoFormExtrasModule, NovoCategoryDropdownModule, NovoMultiPickerModule, UnlessModule, NovoDataTableModule, RemoteDataTableService, StaticDataTableService, NovoDataTableFilterUtils, NovoDataTable, NovoCommonModule, NovoGroupMemberPickerModule, NovoTableElement, NovoCalendarDateChangeElement, NovoTemplate, NovoToastService, NovoModalService, NovoLabelService, NovoDragulaService, GooglePlacesService, CollectionEvent, ArrayCollection, PagedArrayCollection, NovoModalParams, NovoModalRef, QuickNoteResults, PickerResults, BasePickerResults, EntityPickerResult, EntityPickerResults, DistributionListPickerResults, SkillsSpecialtyPickerResults, ChecklistPickerResults, GroupedMultiPickerResults, BaseRenderer, DateCell, PercentageCell, NovoDropdownCell, FormValidators, FormUtils, Security, OptionsService, NovoTemplateService, NovoFile, BaseControl, ControlFactory, AddressControl, CheckListControl, CheckboxControl, DateControl, DateTimeControl, EditorControl, AceEditorControl, FileControl, NativeSelectControl, PickerControl, TablePickerControl, QuickNoteControl, RadioControl, ReadOnlyControl, SelectControl, TextAreaControl, TextBoxControl, TilesControl, TimeControl, GroupedControl, CustomControl, NovoFormControl, NovoFormGroup, NovoControlGroup, FieldInteractionApi, NovoCheckListElement, OutsideClick, KeyCodes, Deferred, COUNTRIES, getCountries, getStateObjects, getStates, findByCountryCode, findByCountryId, findByCountryName, Helpers, notify, ComponentUtils, AppBridge, AppBridgeHandler, AppBridgeService, DevAppBridge, DevAppBridgeService, NovoElementProviders, PluralPipe, DecodeURIPipe, GroupByPipe, RenderPipe, NovoElementsModule, NovoListElement, NOVO_VALUE_TYPE, NOVO_VALUE_THEME, NovoTable, NovoActivityTable, NovoActivityTableActions, NovoActivityTableCustomFilter, NovoActivityTableEmptyMessage, NovoActivityTableNoResultsMessage, NovoActivityTableCustomHeader, NovoSimpleCell, NovoSimpleCheckboxCell, NovoSimpleCheckboxHeaderCell, NovoSimpleHeaderCell, NovoSimpleCellDef, NovoSimpleHeaderCellDef, NovoSimpleColumnDef, NovoSimpleActionCell, NovoSimpleEmptyHeaderCell, NovoSimpleHeaderRow, NovoSimpleRow, NovoSimpleHeaderRowDef, NovoSimpleRowDef, NovoSimpleCellHeader, NovoSimpleFilterFocus, NovoSortFilter, NovoSelection, NovoSimpleTablePagination, ActivityTableDataSource, RemoteActivityTableService, StaticActivityTableService, ActivityTableRenderers, NovoActivityTableState, NovoSimpleTableModule, getWeekViewEventOffset, getWeekViewHeader, getWeekView, getMonthView, getDayView, getDayViewHourGrid, CalendarEventResponse, ɵo, ɵp, ɵz, ɵbj, ɵbh, ɵbg, ɵbi, ɵbc, ɵbb, ɵba, ɵbl, ɵbq, ɵbp, ɵbm, ɵbn, ɵbk, ɵbo, ɵbf, ɵbe, ɵbd, ɵx, ɵy, ɵep, ɵct, ɵcu, ɵcv, ɵcw, ɵdd, ɵfi, ɵfk, ɵez, ɵfc, ɵfd, ɵfh, ɵfj, ɵfm, ɵfl, ɵex, ɵes, ɵey, ɵet, ɵeu, ɵew, ɵev, ɵfg, ɵfe, ɵff, ɵfb, ɵfa, ɵcx, ɵdb, ɵdc, ɵcr, ɵcj, ɵck, ɵcm, ɵcl, ɵdz, ɵec, ɵea, ɵeb, ɵed, ɵef, ɵee, ɵeg, ɵdh, ɵdi, ɵdm, ɵb, ɵa, ɵdk, ɵdl, ɵdj, ɵn, ɵdf, ɵdg, ɵfn, ɵbv, ɵbs, ɵbu, ɵbt, ɵdy, ɵg, ɵk, ɵj, ɵl, ɵi, ɵh, ɵf, ɵu, ɵt, ɵq, ɵs, ɵr, ɵc, ɵd, ɵe, ɵeq, ɵci, ɵch, ɵcp, ɵfv, ɵfu, ɵft, ɵfr, ɵfs, ɵce, ɵcg, ɵcf, ɵcq, ɵcn, ɵcs, ɵel, ɵem, ɵeo, ɵen, ɵej, ɵeh, ɵei, ɵek, ɵco, ɵdq, ɵdr, ɵds, ɵdp, ɵdt, ɵdu, ɵdo, ɵdn, ɵdv, ɵdw, ɵcb, ɵbw, ɵcc, ɵca, ɵby, ɵbx, ɵbz, ɵcd, ɵcz, ɵda, ɵde, ɵbr, ɵw, ɵv, ɵer, ɵdx, ɵm, ɵcy, ɵfp, ɵfo, ɵfq */
+/*! exports provided: NovoAceEditorModule, NovoPipesModule, NovoButtonModule, NovoLoadingModule, NovoCardModule, NovoCalendarModule, NovoToastModule, NovoTooltipModule, NovoHeaderModule, NovoTabModule, NovoTilesModule, NovoModalModule, NovoQuickNoteModule, NovoRadioModule, NovoDropdownModule, NovoSelectModule, NovoListModule, NovoSwitchModule, NovoSearchBoxModule, NovoDragulaModule, NovoSliderModule, NovoPickerModule, NovoChipsModule, NovoDatePickerModule, NovoDatePickerElement, NovoTimePickerModule, NovoDateTimePickerModule, NovoNovoCKEditorModule, NovoTipWellModule, NovoTableModule, NovoValueModule, NovoTableMode, NovoIconModule, NovoExpansionModule, NovoStepperModule, NovoTableExtrasModule, NovoFormModule, NovoDynamicFormElement, NovoFormExtrasModule, NovoCategoryDropdownModule, NovoMultiPickerModule, UnlessModule, NovoDataTableModule, RemoteDataTableService, StaticDataTableService, NovoDataTableFilterUtils, NovoDataTable, NovoCommonModule, NovoTabbedGroupPickerModule, NovoTableElement, NovoCalendarDateChangeElement, NovoTemplate, NovoToastService, NovoModalService, NovoLabelService, NovoDragulaService, GooglePlacesService, CollectionEvent, ArrayCollection, PagedArrayCollection, NovoModalParams, NovoModalRef, QuickNoteResults, PickerResults, BasePickerResults, EntityPickerResult, EntityPickerResults, DistributionListPickerResults, SkillsSpecialtyPickerResults, ChecklistPickerResults, GroupedMultiPickerResults, BaseRenderer, DateCell, PercentageCell, NovoDropdownCell, FormValidators, FormUtils, Security, OptionsService, NovoTemplateService, NovoFile, BaseControl, ControlFactory, AddressControl, CheckListControl, CheckboxControl, DateControl, DateTimeControl, EditorControl, AceEditorControl, FileControl, NativeSelectControl, PickerControl, TablePickerControl, QuickNoteControl, RadioControl, ReadOnlyControl, SelectControl, TextAreaControl, TextBoxControl, TilesControl, TimeControl, GroupedControl, CustomControl, NovoFormControl, NovoFormGroup, NovoControlGroup, FieldInteractionApi, NovoCheckListElement, OutsideClick, KeyCodes, Deferred, COUNTRIES, getCountries, getStateObjects, getStates, findByCountryCode, findByCountryId, findByCountryName, Helpers, notify, ComponentUtils, AppBridge, AppBridgeHandler, AppBridgeService, DevAppBridge, DevAppBridgeService, NovoElementProviders, PluralPipe, DecodeURIPipe, GroupByPipe, RenderPipe, NovoElementsModule, NovoListElement, NOVO_VALUE_TYPE, NOVO_VALUE_THEME, NovoTable, NovoActivityTable, NovoActivityTableActions, NovoActivityTableCustomFilter, NovoActivityTableEmptyMessage, NovoActivityTableNoResultsMessage, NovoActivityTableCustomHeader, NovoSimpleCell, NovoSimpleCheckboxCell, NovoSimpleCheckboxHeaderCell, NovoSimpleHeaderCell, NovoSimpleCellDef, NovoSimpleHeaderCellDef, NovoSimpleColumnDef, NovoSimpleActionCell, NovoSimpleEmptyHeaderCell, NovoSimpleHeaderRow, NovoSimpleRow, NovoSimpleHeaderRowDef, NovoSimpleRowDef, NovoSimpleCellHeader, NovoSimpleFilterFocus, NovoSortFilter, NovoSelection, NovoSimpleTablePagination, ActivityTableDataSource, RemoteActivityTableService, StaticActivityTableService, ActivityTableRenderers, NovoActivityTableState, NovoSimpleTableModule, getWeekViewEventOffset, getWeekViewHeader, getWeekView, getMonthView, getDayView, getDayViewHourGrid, CalendarEventResponse, ɵo, ɵp, ɵz, ɵbj, ɵbh, ɵbg, ɵbi, ɵbc, ɵbb, ɵba, ɵbl, ɵbq, ɵbp, ɵbm, ɵbn, ɵbk, ɵbo, ɵbf, ɵbe, ɵbd, ɵx, ɵy, ɵep, ɵct, ɵcu, ɵcv, ɵcw, ɵdd, ɵfi, ɵfk, ɵez, ɵfc, ɵfd, ɵfh, ɵfj, ɵfm, ɵfl, ɵex, ɵes, ɵey, ɵet, ɵeu, ɵew, ɵev, ɵfg, ɵfe, ɵff, ɵfb, ɵfa, ɵcx, ɵdb, ɵdc, ɵcr, ɵcj, ɵck, ɵcm, ɵcl, ɵdz, ɵec, ɵea, ɵeb, ɵed, ɵef, ɵee, ɵeg, ɵdh, ɵdi, ɵdm, ɵb, ɵa, ɵdk, ɵdl, ɵdj, ɵn, ɵdf, ɵdg, ɵbv, ɵbs, ɵbu, ɵbt, ɵdy, ɵg, ɵk, ɵj, ɵl, ɵi, ɵh, ɵf, ɵu, ɵt, ɵq, ɵs, ɵr, ɵc, ɵd, ɵe, ɵeq, ɵci, ɵch, ɵcp, ɵfv, ɵfu, ɵft, ɵfr, ɵfs, ɵce, ɵcg, ɵcf, ɵcq, ɵcn, ɵcs, ɵel, ɵem, ɵeo, ɵen, ɵej, ɵeh, ɵei, ɵek, ɵco, ɵfn, ɵdq, ɵdr, ɵds, ɵdp, ɵdt, ɵdu, ɵdo, ɵdn, ɵdv, ɵdw, ɵcb, ɵbw, ɵcc, ɵca, ɵby, ɵbx, ɵbz, ɵcd, ɵcz, ɵda, ɵde, ɵbr, ɵw, ɵv, ɵer, ɵdx, ɵm, ɵcy, ɵfp, ɵfo, ɵfq */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1404,7 +1404,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NovoDataTableFilterUtils", function() { return NovoDataTableFilterUtils; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NovoDataTable", function() { return NovoDataTable; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NovoCommonModule", function() { return NovoCommonModule; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NovoGroupMemberPickerModule", function() { return NovoGroupMemberPickerModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NovoTabbedGroupPickerModule", function() { return NovoTabbedGroupPickerModule; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NovoTableElement", function() { return NovoTableElement; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NovoCalendarDateChangeElement", function() { return NovoCalendarDateChangeElement; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NovoTemplate", function() { return NovoTemplate; });
@@ -1606,7 +1606,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵn", function() { return NovoAddressElement; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdf", function() { return NovoCheckboxElement; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdg", function() { return NovoFileInputElement; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfn", function() { return NovoGroupMemberPickerElement; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbv", function() { return NovoHeaderComponent; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbs", function() { return NovoHeaderSpacer; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbu", function() { return NovoUtilActionComponent; });
@@ -1651,6 +1650,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵei", function() { return NovoStepper; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵek", function() { return NovoVerticalStepper; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵco", function() { return NovoSwitchElement; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfn", function() { return NovoTabbedGroupPickerElement; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdq", function() { return NovoTableKeepFilterFocus; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdr", function() { return Pagination; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵds", function() { return RowDetails; });
@@ -52194,19 +52194,22 @@ RemoteDataTableService = /** @class */ (function () {
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
-var NovoGroupMemberPickerElement = /** @class */ (function () {
-    function NovoGroupMemberPickerElement() {
+var NovoTabbedGroupPickerElement = /** @class */ (function () {
+    function NovoTabbedGroupPickerElement() {
         this.selectionChange = new _angular_core__WEBPACK_IMPORTED_MODULE_26__["EventEmitter"]();
-        this.items = [];
         this.loading = true;
     }
     /**
      * @return {?}
      */
-    NovoGroupMemberPickerElement.prototype.ngOnInit = /**
+    NovoTabbedGroupPickerElement.prototype.ngOnInit = /**
      * @return {?}
      */
     function () {
+        this.validateData();
+        if (this.quickSelectConfig) {
+            this.validateQuickSelectConfig();
+        }
         this.setActiveType(this.typeSchema[0]);
         this.loading = false;
     };
@@ -52214,18 +52217,188 @@ var NovoGroupMemberPickerElement = /** @class */ (function () {
      * @param {?} newActiveSchema
      * @return {?}
      */
-    NovoGroupMemberPickerElement.prototype.setActiveType = /**
+    NovoTabbedGroupPickerElement.prototype.setActiveType = /**
      * @param {?} newActiveSchema
      * @return {?}
      */
     function (newActiveSchema) {
         this.activeType = newActiveSchema;
-        this.items = this.data[newActiveSchema.typeName];
     };
     /**
      * @return {?}
      */
-    NovoGroupMemberPickerElement.prototype.onItemToggled = /**
+    NovoTabbedGroupPickerElement.prototype.validateData = /**
+     * @return {?}
+     */
+    function () {
+        var _this = this;
+        /** @type {?} */
+        var warning = '';
+        this.typeSchema.forEach(function (schema) {
+            if (_this.data[schema.typeName] === undefined) {
+                warning += "Property " + schema.typeName + " is missing from data.\n";
+            }
+            else if (!Array.isArray(_this.data[schema.typeName])) {
+                warning += "data." + schema.typeName + " is not an array.\n";
+            }
+            else {
+                if (_this.data[schema.typeName].some(function (item) { return !(schema.valueField in item); })) {
+                    warning += "At least one item in data." + schema.typeName + " is missing the " + schema.valueField + " property.\n";
+                }
+                if (_this.data[schema.typeName].some(function (item) { return !(schema.labelField in item); })) {
+                    warning += "At least one item in data." + schema.typeName + " is missing the " + schema.labelField + " property.\n";
+                }
+            }
+        });
+        if (warning) {
+            console.warn("TabbedGroupPicker data validation warning:\n" + warning);
+        }
+    };
+    /**
+     * @return {?}
+     */
+    NovoTabbedGroupPickerElement.prototype.validateQuickSelectConfig = /**
+     * @return {?}
+     */
+    function () {
+        var _this = this;
+        /** @type {?} */
+        var warning = '';
+        this.quickSelectConfig.forEach(function (quickSelect) {
+            /** @type {?} */
+            var quickSelectIdentifier = '(Invalid quickSelect)';
+            if (!quickSelect.typeName) {
+                warning += "Invalid typeName: required field 'typeName' is not defined.\n";
+            }
+            else if (!quickSelect.label) {
+                warning += "Invalid label: required field 'label' is not defined.\n";
+            }
+            else {
+                quickSelectIdentifier = quickSelect.label + " (" + quickSelect.typeName + ")";
+            }
+            /** @type {?} */
+            var foundSchema = _this.typeSchema.find(function (schema) { return quickSelect.typeName === schema.typeName; });
+            if (!foundSchema) {
+                warning += "Invalid typeName for " + quickSelectIdentifier + " config: " + quickSelect.typeName + " is not present in any configured typeSchema.\n";
+            }
+            if ('values' in quickSelect && 'all' in quickSelect) {
+                warning += "Invalid properties for " + quickSelectIdentifier + " config: only one of 'values' and 'all' is allowed.\n";
+            }
+            else if (!('values' in quickSelect) && !('all' in quickSelect)) {
+                warning += "Invalid properties for " + quickSelectIdentifier + " config: either 'values' or 'all' is required.\n";
+            }
+            if ('values' in quickSelect) {
+                if (!Array.isArray(quickSelect.values)) {
+                    warning += "Invalid values for " + quickSelectIdentifier + " config:  'values' property is not an array.\n";
+                }
+                else if (!Array.isArray(quickSelect.values)) {
+                    warning += "Invalid values for " + quickSelectIdentifier + " config:  'values' property contains no values.\n";
+                }
+                else if (!quickSelect.values.every(function (quickSelectValue) { return _this.data[foundSchema.typeName].some(function (dataItem) { return dataItem[foundSchema.valueField] === quickSelectValue; }); })) {
+                    warning += "Invalid value for " + quickSelectIdentifier + " config: at least one value in values is not present in any item in data." + foundSchema.typeName + "\n";
+                }
+            }
+        });
+        if (warning) {
+            console.warn("TabbedGroupPicker quickSelect validation warning:\n" + warning);
+        }
+    };
+    /**
+     * @param {?} activeType
+     * @param {?} item
+     * @return {?}
+     */
+    NovoTabbedGroupPickerElement.prototype.onDataListItemClicked = /**
+     * @param {?} activeType
+     * @param {?} item
+     * @return {?}
+     */
+    function (activeType, item) {
+        item.selected = !item.selected;
+        this.onItemToggled(activeType);
+    };
+    /**
+     * @param {?} typeSchema
+     * @return {?}
+     */
+    NovoTabbedGroupPickerElement.prototype.onItemToggled = /**
+     * @param {?} typeSchema
+     * @return {?}
+     */
+    function (typeSchema) {
+        if (this.quickSelectConfig) {
+            this.syncQuickSelectCheckboxes(typeSchema);
+        }
+        this.emitSelectedValues();
+    };
+    /**
+     * @param {?} quickSelect
+     * @return {?}
+     */
+    NovoTabbedGroupPickerElement.prototype.onQuickSelectListItemClicked = /**
+     * @param {?} quickSelect
+     * @return {?}
+     */
+    function (quickSelect) {
+        quickSelect.active = !quickSelect.active;
+        this.onQuickSelectToggled(quickSelect);
+    };
+    /**
+     * @param {?} quickSelect
+     * @return {?}
+     */
+    NovoTabbedGroupPickerElement.prototype.onQuickSelectToggled = /**
+     * @param {?} quickSelect
+     * @return {?}
+     */
+    function (quickSelect) {
+        /** @type {?} */
+        var typeSchema = this.typeSchema.find(function (schema) { return quickSelect.typeName === schema.typeName; });
+        /** @type {?} */
+        var itemsToSelect = [];
+        if (quickSelect.all) {
+            itemsToSelect = this.data[typeSchema.typeName];
+        }
+        else {
+            itemsToSelect = this.data[typeSchema.typeName].filter(function (item) {
+                return quickSelect.values.some(function (quickSelectValue) { return item[typeSchema.valueField] === quickSelectValue; });
+            });
+        }
+        if (itemsToSelect && itemsToSelect.length) {
+            itemsToSelect.forEach(function (itemToSelect) {
+                itemToSelect.selected = !!quickSelect.active;
+            });
+        }
+        this.onItemToggled(typeSchema);
+    };
+    /**
+     * @param {?} activeType
+     * @return {?}
+     */
+    NovoTabbedGroupPickerElement.prototype.syncQuickSelectCheckboxes = /**
+     * @param {?} activeType
+     * @return {?}
+     */
+    function (activeType) {
+        var _this = this;
+        /** @type {?} */
+        var relevantQuickSelects = this.quickSelectConfig.filter(function (quickSelect) { return activeType.typeName === quickSelect.typeName; });
+        relevantQuickSelects.forEach(function (quickSelect) {
+            /** @type {?} */
+            var itemsToCheck = [];
+            if (quickSelect.all) {
+                itemsToCheck = _this.data[activeType.typeName];
+            }
+            else {
+                itemsToCheck = _this.data[activeType.typeName].filter(function (dataItem) { return quickSelect.values.includes(dataItem[activeType.valueField]); });
+            }
+            quickSelect.active = itemsToCheck.every(function (dataItem) { return dataItem.selected === true; });
+        });
+    };
+    /**
+     * @return {?}
+     */
+    NovoTabbedGroupPickerElement.prototype.emitSelectedValues = /**
      * @return {?}
      */
     function () {
@@ -52233,54 +52406,45 @@ var NovoGroupMemberPickerElement = /** @class */ (function () {
         /** @type {?} */
         var currentSelection = {};
         this.typeSchema.forEach(function (type) {
-            currentSelection[type.typeName] = _this.data[type.typeName].filter(function (dataItem) { return dataItem.selected; }).map(function (dataItem) { return dataItem[type.valueField]; });
+            currentSelection[type.typeName] = _this.data[type.typeName]
+                .filter(function (item) { return item.selected; })
+                .map(function (item) { return item[type.valueField]; });
         });
         this.selectionChange.emit(currentSelection);
     };
-    /**
-     * @param {?} item
-     * @return {?}
-     */
-    NovoGroupMemberPickerElement.prototype.onListItemClicked = /**
-     * @param {?} item
-     * @return {?}
-     */
-    function (item) {
-        item.selected = !item.selected;
-        this.onItemToggled();
-    };
-    NovoGroupMemberPickerElement.decorators = [
+    NovoTabbedGroupPickerElement.decorators = [
         { type: _angular_core__WEBPACK_IMPORTED_MODULE_26__["Component"], args: [{
-                    selector: 'novo-group-member-picker',
-                    template: "<novo-dropdown>\n  <button theme=\"buttonConfig.theme\"\n          side=\"buttonConfig.side\"\n          icon=\"buttonConfig.icon\"\n          [loading]=\"loading\">\n    <span class=\"dropdown-button-label\">{{ buttonConfig.label }}</span>\n    <i class=\"bhi-sort-desc\"></i>\n  </button>\n  <!-- todo: search input goes here-->\n  <div class=\"group-member-picker-column-container\">\n    <div class=\"group-member-picker-column left\">\n      <novo-nav theme=\"white\"\n                direction=\"vertical\">\n        <novo-tab *ngFor=\"let schema of typeSchema\"\n                  [attr.data-automation-id]=\"schema.typeName\"\n                  (activeChange)=\"setActiveType(schema)\">\n          <span>{{ schema.typeLabel }}</span><i class=\"bhi-next\"></i>\n        </novo-tab>\n      </novo-nav>\n      <!-- todo: clear all button goes here-->\n    </div>\n    <div class=\"group-member-picker-column right\">\n      <novo-list *ngIf=\"items.length\"\n                 direction=\"vertical\">\n        <!-- todo: quick select goes here-->\n        <!-- todo: add virtual scroll-->\n        <novo-list-item *ngFor=\"let item of items\"\n                        [attr.data-automation-id]=\"item[activeType.labelField]\"\n                        (click)=\"onListItemClicked(item);\">\n          <item-content>\n            <novo-checkbox [label]=\"item[activeType.labelField]\"\n                           [name]=\"'selected'\"\n                           [(ngModel)]=\"item.selected\"\n                           (ngModelChange)=\"onItemToggled()\"></novo-checkbox>\n          </item-content>\n        </novo-list-item>\n      </novo-list>\n      <!-- todo: empty state goes here-->\n    </div>\n  </div>\n</novo-dropdown>\n"
+                    selector: 'novo-tabbed-group-picker',
+                    template: "<novo-dropdown>\n  <button theme=\"buttonConfig.theme\"\n          side=\"buttonConfig.side\"\n          icon=\"buttonConfig.icon\"\n          [loading]=\"loading\">\n    <span class=\"dropdown-button-label\">{{ buttonConfig.label }}</span>\n    <i class=\"bhi-sort-desc\"></i>\n  </button>\n  <!-- todo: search input goes here-->\n  <div class=\"tabbed-group-picker-column-container\">\n    <div class=\"tabbed-group-picker-column left\">\n      <novo-nav theme=\"white\"\n                direction=\"vertical\">\n        <novo-tab *ngFor=\"let schema of typeSchema\"\n                  [attr.data-automation-id]=\"schema.typeName\"\n                  (activeChange)=\"setActiveType(schema)\">\n          <span>{{ schema.typeLabel }}</span><i class=\"bhi-next\"></i>\n        </novo-tab>\n      </novo-nav>\n      <!-- todo: clear all button goes here-->\n    </div>\n    <div class=\"tabbed-group-picker-column right\">\n      <div class=\"quick-select\" *ngIf=\"quickSelectConfig\">\n        <div class=\"quick-select-label\">**Quick Select**</div>\n        <novo-list direction=\"vertical\">\n          <novo-list-item *ngFor=\"let quickSelect of quickSelectConfig\"\n                          [attr.data-automation-id]=\"quickSelect.label\"\n                          (click)=\"onQuickSelectListItemClicked(quickSelect)\">\n            <item-content>\n              <novo-checkbox [label]=\"quickSelect.label\"\n                             [name]=\"'active'\"\n                             [(ngModel)]=\"quickSelect.active\"\n                             (ngModelChange)=\"onQuickSelectToggled(quickSelect)\"></novo-checkbox>\n            </item-content>\n          </novo-list-item>\n        </novo-list>\n      </div>\n      <!-- todo: add virtual scroll-->\n      <novo-list *ngIf=\"data[activeType.typeName].length\"\n                 direction=\"vertical\">\n        <novo-list-item *ngFor=\"let item of data[activeType.typeName]\"\n                        [attr.data-automation-id]=\"item[activeType.labelField]\"\n                        (click)=\"onDataListItemClicked(activeType, item);\">\n          <item-content>\n            <novo-checkbox [label]=\"item[activeType.labelField]\"\n                           [name]=\"'selected'\"\n                           [(ngModel)]=\"item.selected\"\n                           (ngModelChange)=\"onItemToggled(activeType)\"></novo-checkbox>\n          </item-content>\n        </novo-list-item>\n      </novo-list>\n      <!-- todo: empty state goes here-->\n    </div>\n  </div>\n</novo-dropdown>\n"
                 }] }
     ];
     /** @nocollapse */
-    NovoGroupMemberPickerElement.ctorParameters = function () { return []; };
-    NovoGroupMemberPickerElement.propDecorators = {
+    NovoTabbedGroupPickerElement.ctorParameters = function () { return []; };
+    NovoTabbedGroupPickerElement.propDecorators = {
         buttonConfig: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_26__["Input"] }],
         typeSchema: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_26__["Input"] }],
+        quickSelectConfig: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_26__["Input"] }],
         data: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_26__["Input"] }],
         selectionChange: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_26__["Output"] }]
     };
-    return NovoGroupMemberPickerElement;
+    return NovoTabbedGroupPickerElement;
 }());
 
 /**
  * @fileoverview added by tsickle
  * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
-var NovoGroupMemberPickerModule = /** @class */ (function () {
-    function NovoGroupMemberPickerModule() {
+var NovoTabbedGroupPickerModule = /** @class */ (function () {
+    function NovoTabbedGroupPickerModule() {
     }
-    NovoGroupMemberPickerModule.decorators = [
+    NovoTabbedGroupPickerModule.decorators = [
         { type: _angular_core__WEBPACK_IMPORTED_MODULE_26__["NgModule"], args: [{
                     imports: [_angular_common__WEBPACK_IMPORTED_MODULE_27__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_24__["FormsModule"], NovoTabModule, NovoListModule, NovoFormExtrasModule, NovoButtonModule, NovoDropdownModule],
-                    declarations: [NovoGroupMemberPickerElement],
-                    exports: [NovoGroupMemberPickerElement],
+                    declarations: [NovoTabbedGroupPickerElement],
+                    exports: [NovoTabbedGroupPickerElement],
                 },] }
     ];
-    return NovoGroupMemberPickerModule;
+    return NovoTabbedGroupPickerModule;
 }());
 
 /**
@@ -56891,7 +57055,7 @@ var NovoElementsModule = /** @class */ (function () {
                         UnlessModule,
                         NovoCommonModule,
                         NovoStepperModule,
-                        NovoGroupMemberPickerModule,
+                        NovoTabbedGroupPickerModule,
                         _angular_cdk_scrolling__WEBPACK_IMPORTED_MODULE_17__["ScrollDispatchModule"],
                     ],
                     providers: [
@@ -56975,7 +57139,7 @@ var ActivityTableRenderers = /** @class */ (function () {
 /*!***************************************************!*\
   !*** ./dist/novo-examples/fesm5/novo-examples.js ***!
   \***************************************************/
-/*! exports provided: ExampleData, EXAMPLE_COMPONENTS, EXAMPLE_LIST, NovoExamplesModule, AceEditorPage, ButtonsPage, CalendarPage, ComponentsPage, DataTablePage, DropdownPage, GroupMemberPickerPage, IconPage, LoadingPage, QuickNotePage, SearchPage, SlidesPage, SwitchPage, TablePage, ColorsPage, CompositionPage, DesignPage, IconographyPage, TypographyPage, ChipsPage, DatePickerPage, EditorPage, FormControlsPage, FormGroupsPage, FormPage, MultiPickerPage, PickerPage, RadioButtonsPage, SelectPage, TilesPage, ValuePage, HomePage, CardsPage, ExpansionPage, HeaderPage, LayoutsPage, ListPage, StepperPage, TabsPage, PatternsPage, TemplatesPage, ChomskyPage, FieldInteractionsPage, ModalPage, PipesPage, PopOverPage, SecurityPage, TipWellPage, ToasterPage, TooltipPage, PAGE_LIST, NovoExamplesRoutesModule, ɵgz, ɵgx, ɵgy, ɵgw, ɵha, ɵa, ɵb, ɵc, ɵd, ɵe, ɵf, ɵg, ɵh, ɵi, ɵj, ɵk, ɵl, ɵm, ɵn, ɵo, ɵp, ɵq, ɵr, ɵs, ɵt, ɵu, ɵv, ɵw, ɵx, ɵy, ɵz, ɵba, ɵbb, ɵbc, ɵbd, ɵbe, ɵbf, ɵbg, ɵbh, ɵbi, ɵbj, ɵbk, ɵbl, ɵbm, ɵbo, ɵbn, ɵbp, ɵbq, ɵbr, ɵbs, ɵbt, ɵbu, ɵbv, ɵbw, ɵbx, ɵby, ɵbz, ɵca, ɵcb, ɵcc, ɵcd, ɵce, ɵcf, ɵcg, ɵch, ɵci, ɵcj, ɵck, ɵcl, ɵcm, ɵcn, ɵco, ɵcp, ɵcq, ɵcr, ɵcs, ɵct, ɵcu, ɵcv, ɵcw, ɵcx, ɵcy, ɵcz, ɵda, ɵdb, ɵdc, ɵdd, ɵde, ɵdf, ɵdg, ɵdh, ɵdi, ɵdj, ɵdk, ɵdl, ɵdm, ɵdn, ɵdo, ɵdp, ɵdq, ɵdr, ɵds, ɵdt, ɵdu, ɵdv, ɵdw, ɵdx, ɵdy, ɵdz, ɵea, ɵeb, ɵec, ɵed, ɵee, ɵef, ɵeg, ɵeh, ɵei, ɵej, ɵek, ɵel, ɵem, ɵen, ɵeo, ɵep, ɵeq, ɵer, ɵes, ɵet, ɵeu, ɵev, ɵew, ɵex, ɵey, ɵez, ɵfa, ɵfb, ɵfc, ɵfd, ɵfe, ɵff, ɵfg, ɵfh, ɵfi, ɵfj, ɵfk, ɵfl, ɵfm, ɵfn, ɵfo, ɵfp, ɵfr, ɵfq, ɵft, ɵfs, ɵfu, ɵfv, ɵfw, ɵfx, ɵfy, ɵfz, ɵga, ɵgb, ɵgc, ɵgd, ɵge, ɵgf, ɵgg, ɵgh, ɵgi, ɵgj, ɵgk, ɵgl, ɵgm, ɵgn, ɵgo, ɵgp, ɵgq, ɵgr, ɵgs, ɵgt, ɵgu, ɵgv */
+/*! exports provided: ExampleData, EXAMPLE_COMPONENTS, EXAMPLE_LIST, NovoExamplesModule, AceEditorPage, ButtonsPage, CalendarPage, ComponentsPage, DataTablePage, DropdownPage, IconPage, LoadingPage, QuickNotePage, SearchPage, SlidesPage, SwitchPage, TabbedGroupPickerPage, TablePage, ColorsPage, CompositionPage, DesignPage, IconographyPage, TypographyPage, ChipsPage, DatePickerPage, EditorPage, FormControlsPage, FormGroupsPage, FormPage, MultiPickerPage, PickerPage, RadioButtonsPage, SelectPage, TilesPage, ValuePage, HomePage, CardsPage, ExpansionPage, HeaderPage, LayoutsPage, ListPage, StepperPage, TabsPage, PatternsPage, TemplatesPage, ChomskyPage, FieldInteractionsPage, ModalPage, PipesPage, PopOverPage, SecurityPage, TipWellPage, ToasterPage, TooltipPage, PAGE_LIST, NovoExamplesRoutesModule, ɵha, ɵgy, ɵgz, ɵgx, ɵhb, ɵa, ɵb, ɵc, ɵd, ɵe, ɵf, ɵg, ɵh, ɵi, ɵj, ɵk, ɵl, ɵm, ɵn, ɵo, ɵp, ɵq, ɵr, ɵs, ɵt, ɵu, ɵv, ɵw, ɵx, ɵy, ɵz, ɵba, ɵbb, ɵbc, ɵbd, ɵbe, ɵbf, ɵbg, ɵbh, ɵbi, ɵbj, ɵbk, ɵbl, ɵbm, ɵbn, ɵbp, ɵbo, ɵbq, ɵbr, ɵbs, ɵbt, ɵbu, ɵbv, ɵbw, ɵbx, ɵby, ɵbz, ɵca, ɵcb, ɵcc, ɵcd, ɵce, ɵcf, ɵcg, ɵch, ɵci, ɵcj, ɵck, ɵcl, ɵcm, ɵcn, ɵco, ɵcp, ɵcq, ɵcr, ɵcs, ɵct, ɵcu, ɵcv, ɵcw, ɵcx, ɵcy, ɵcz, ɵda, ɵdb, ɵdc, ɵdd, ɵde, ɵdf, ɵdg, ɵdh, ɵdi, ɵdj, ɵdk, ɵdl, ɵdm, ɵdn, ɵdo, ɵdp, ɵdq, ɵdr, ɵds, ɵdt, ɵdu, ɵdv, ɵdw, ɵdx, ɵdy, ɵdz, ɵea, ɵeb, ɵec, ɵed, ɵee, ɵef, ɵeg, ɵeh, ɵei, ɵej, ɵek, ɵel, ɵem, ɵen, ɵeo, ɵep, ɵeq, ɵer, ɵes, ɵet, ɵeu, ɵev, ɵew, ɵex, ɵey, ɵez, ɵfa, ɵfb, ɵfc, ɵfd, ɵfe, ɵff, ɵfg, ɵfh, ɵfi, ɵfj, ɵfk, ɵfl, ɵfm, ɵfn, ɵfo, ɵfp, ɵfq, ɵfs, ɵfr, ɵfu, ɵft, ɵfv, ɵfw, ɵfx, ɵfy, ɵfz, ɵga, ɵgb, ɵgc, ɵgd, ɵge, ɵgf, ɵgg, ɵgh, ɵgi, ɵgj, ɵgk, ɵgl, ɵgm, ɵgn, ɵgo, ɵgp, ɵgq, ɵgr, ɵgs, ɵgt, ɵgu, ɵgv, ɵgw */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -56990,13 +57154,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ComponentsPage", function() { return ComponentsPage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DataTablePage", function() { return DataTablePage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DropdownPage", function() { return DropdownPage; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GroupMemberPickerPage", function() { return GroupMemberPickerPage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IconPage", function() { return IconPage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoadingPage", function() { return LoadingPage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "QuickNotePage", function() { return QuickNotePage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SearchPage", function() { return SearchPage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SlidesPage", function() { return SlidesPage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SwitchPage", function() { return SwitchPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TabbedGroupPickerPage", function() { return TabbedGroupPickerPage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TablePage", function() { return TablePage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ColorsPage", function() { return ColorsPage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CompositionPage", function() { return CompositionPage; });
@@ -57036,11 +57200,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TooltipPage", function() { return TooltipPage; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PAGE_LIST", function() { return PAGE_LIST; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NovoExamplesRoutesModule", function() { return NovoExamplesRoutesModule; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgz", function() { return CodeExampleComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgx", function() { return CodeSnippetComponent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgy", function() { return HighlightJS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgw", function() { return NovoExamplesSharedModule; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵha", function() { return StackblitzButtonModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵha", function() { return CodeExampleComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgy", function() { return CodeSnippetComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgz", function() { return HighlightJS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgx", function() { return NovoExamplesSharedModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵhb", function() { return StackblitzButtonModule; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵa", function() { return BasicAceExample; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵb", function() { return ButtonDialogueExample; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵc", function() { return ButtonDynamicExample; });
@@ -57066,159 +57230,160 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵw", function() { return MultiDropDownExample; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵx", function() { return PositionDropDownExample; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵy", function() { return ScrollableDropDownExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵz", function() { return GroupMemberPickerBasicExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵba", function() { return BasicIconsExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbb", function() { return RaisedIconsExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbc", function() { return ThemedIconsExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbd", function() { return LoadingCircleExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbe", function() { return LoadingLineExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbf", function() { return BasicQuickNoteExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbg", function() { return CustomQuickNoteResults; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbh", function() { return CustomQuickNoteResultsExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbi", function() { return CustomQuickNoteExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbj", function() { return SearchUsageExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbk", function() { return BasicSlideExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbl", function() { return SwitchUsageExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbm", function() { return ActionsCellExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbo", function() { return DetailsTableExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbn", function() { return ExtraDetails; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbp", function() { return EditableTableExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbq", function() { return SelectAllTableExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbr", function() { return TableExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbs", function() { return TotalFooterTableExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbt", function() { return AnalyticsColorsExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbu", function() { return EntityColorsExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbv", function() { return PrimaryColorsExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbw", function() { return AsyncChipsExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbx", function() { return BasicChipsExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵby", function() { return CloseOnSelectChipsExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbz", function() { return FormattedChipsExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵca", function() { return GroupedMultiPickerExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵcb", function() { return RowChipsExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵcc", function() { return DatePickerExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵcd", function() { return DateRangeExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵce", function() { return DateTimeInputExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵcf", function() { return DateTimeExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵcg", function() { return TimePickerExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵch", function() { return WeekStartExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵci", function() { return BasicEditorExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵcj", function() { return MinimalEditorExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵck", function() { return CustomTemplateExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵcl", function() { return HorizontalOptionsExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵcm", function() { return HorizontalExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵcn", function() { return VerticalOptionsExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵco", function() { return VerticalExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵcp", function() { return AddressControlExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵcq", function() { return CalendarInputControlsExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵcr", function() { return CheckBoxControlsExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵcs", function() { return CustomDemoControlExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵct", function() { return DisabledFormExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵcu", function() { return DynamicFormFieldSetsExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵcv", function() { return DynamicFormExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵcw", function() { return EnableDisableAllFieldsInFormExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵcx", function() { return FileInputControlsExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵcy", function() { return PickerControlsExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵcz", function() { return TextBasedControlsExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵda", function() { return UpdatingFormExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdb", function() { return VerticalDynamicFormExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdc", function() { return BasicMultiPickerExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdd", function() { return NestedMultiPickerExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵde", function() { return AsyncPickerExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdf", function() { return BasicPickerExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdg", function() { return CustomPickerResults; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdh", function() { return CustomPickerResultsExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdi", function() { return DefaultOptionsPickerExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdj", function() { return EntityPickerExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdk", function() { return FormattedPickerExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdl", function() { return GroupedPickerExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdm", function() { return OverrideTemplateExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdn", function() { return BasicRadioExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdo", function() { return ButtonRadioExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdp", function() { return IconRadioExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdq", function() { return VerticalRadioExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdr", function() { return BasicSelectExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵds", function() { return LongSelectExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdt", function() { return TilesUsageExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdu", function() { return AddressValueExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdv", function() { return AssociatedValueExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdw", function() { return BasicValueExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdx", function() { return CategoryValueExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdy", function() { return CorporateUserValueExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdz", function() { return DateTimeValueExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵea", function() { return EntityListValueExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵeb", function() { return ExternalLinkValueExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵec", function() { return FormatterValueExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵed", function() { return IconValueExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵee", function() { return MultiOptionValueExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵef", function() { return BasicCardExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵeg", function() { return CardConfigExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵeh", function() { return AccordionExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵei", function() { return BasicExpansionExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵej", function() { return LazyExpansionExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵek", function() { return BasicHeaderExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵel", function() { return CondensedHeaderExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵem", function() { return HeaderSearchbarExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵen", function() { return HeaderSubtitleExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵeo", function() { return BasicListExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵep", function() { return ThemedListExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵeq", function() { return StepperHorizontalExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵer", function() { return StepperVerticalExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵes", function() { return TabsBasicExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵet", function() { return TabsColorExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵeu", function() { return TabsCondensedExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵev", function() { return TabsRouterExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵew", function() { return TabsVerticalExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵex", function() { return ActivitySectionExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵey", function() { return RecordHeaderExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵez", function() { return DateTranslationsExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfa", function() { return NumberTranslationsExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfb", function() { return PluralTranslationsExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfc", function() { return SimpleTranslationsExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfd", function() { return TranslationsVariablesExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfe", function() { return FiAddingRemovingExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵff", function() { return FiAsyncExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfg", function() { return FiCalculationExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfh", function() { return FiConfirmExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfi", function() { return FiEnableDisableExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfj", function() { return FiGlobalsExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfk", function() { return FiHideShowExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfl", function() { return FiMessagingExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfm", function() { return FiModifyOptionsExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfn", function() { return FiRequiredExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfo", function() { return FiTooltipExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfp", function() { return FiValidationExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfr", function() { return CustomModalExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfq", function() { return ModalCustomDemo; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵft", function() { return ErrorModalExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfs", function() { return ModalErrorDemo; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfu", function() { return ModalAddFormDemo; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfv", function() { return ModalAddFormExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfw", function() { return ModalEditFormDemo; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfx", function() { return ModalEditFormExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfy", function() { return ModalSuccessDemo; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfz", function() { return SuccessModalExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵga", function() { return ModalWarningDemo; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgb", function() { return WarningModalExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgc", function() { return PluralizeExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgd", function() { return PopOverAutoPlacementExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵge", function() { return PopOverBehaviorsExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgf", function() { return PopOverDynamicExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgg", function() { return PopOverHorizontalExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgh", function() { return PopOverPlacementExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgi", function() { return PopOverVerticalExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgj", function() { return SecurityExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgk", function() { return BasicTipWellExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgl", function() { return ButtonlessTipWellExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgm", function() { return HtmlTipWellExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgn", function() { return IconTipWellExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgo", function() { return ToastServiceExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgp", function() { return ToastUsageExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgq", function() { return TooltipAlignExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgr", function() { return TooltipOptionsExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgs", function() { return TooltipPlacementExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgt", function() { return TooltipSizesExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgu", function() { return TooltipToggleExample; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgv", function() { return TooltipTypesExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵz", function() { return BasicIconsExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵba", function() { return RaisedIconsExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbb", function() { return ThemedIconsExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbc", function() { return LoadingCircleExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbd", function() { return LoadingLineExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbe", function() { return BasicQuickNoteExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbf", function() { return CustomQuickNoteResults; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbg", function() { return CustomQuickNoteResultsExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbh", function() { return CustomQuickNoteExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbi", function() { return SearchUsageExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbj", function() { return BasicSlideExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbk", function() { return SwitchUsageExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbl", function() { return TabbedGroupPickerBasicExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbm", function() { return TabbedGroupPickerQuickSelectExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbn", function() { return ActionsCellExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbp", function() { return DetailsTableExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbo", function() { return ExtraDetails; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbq", function() { return EditableTableExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbr", function() { return SelectAllTableExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbs", function() { return TableExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbt", function() { return TotalFooterTableExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbu", function() { return AnalyticsColorsExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbv", function() { return EntityColorsExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbw", function() { return PrimaryColorsExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbx", function() { return AsyncChipsExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵby", function() { return BasicChipsExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵbz", function() { return CloseOnSelectChipsExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵca", function() { return FormattedChipsExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵcb", function() { return GroupedMultiPickerExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵcc", function() { return RowChipsExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵcd", function() { return DatePickerExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵce", function() { return DateRangeExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵcf", function() { return DateTimeInputExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵcg", function() { return DateTimeExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵch", function() { return TimePickerExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵci", function() { return WeekStartExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵcj", function() { return BasicEditorExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵck", function() { return MinimalEditorExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵcl", function() { return CustomTemplateExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵcm", function() { return HorizontalOptionsExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵcn", function() { return HorizontalExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵco", function() { return VerticalOptionsExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵcp", function() { return VerticalExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵcq", function() { return AddressControlExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵcr", function() { return CalendarInputControlsExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵcs", function() { return CheckBoxControlsExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵct", function() { return CustomDemoControlExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵcu", function() { return DisabledFormExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵcv", function() { return DynamicFormFieldSetsExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵcw", function() { return DynamicFormExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵcx", function() { return EnableDisableAllFieldsInFormExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵcy", function() { return FileInputControlsExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵcz", function() { return PickerControlsExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵda", function() { return TextBasedControlsExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdb", function() { return UpdatingFormExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdc", function() { return VerticalDynamicFormExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdd", function() { return BasicMultiPickerExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵde", function() { return NestedMultiPickerExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdf", function() { return AsyncPickerExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdg", function() { return BasicPickerExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdh", function() { return CustomPickerResults; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdi", function() { return CustomPickerResultsExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdj", function() { return DefaultOptionsPickerExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdk", function() { return EntityPickerExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdl", function() { return FormattedPickerExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdm", function() { return GroupedPickerExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdn", function() { return OverrideTemplateExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdo", function() { return BasicRadioExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdp", function() { return ButtonRadioExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdq", function() { return IconRadioExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdr", function() { return VerticalRadioExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵds", function() { return BasicSelectExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdt", function() { return LongSelectExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdu", function() { return TilesUsageExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdv", function() { return AddressValueExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdw", function() { return AssociatedValueExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdx", function() { return BasicValueExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdy", function() { return CategoryValueExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵdz", function() { return CorporateUserValueExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵea", function() { return DateTimeValueExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵeb", function() { return EntityListValueExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵec", function() { return ExternalLinkValueExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵed", function() { return FormatterValueExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵee", function() { return IconValueExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵef", function() { return MultiOptionValueExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵeg", function() { return BasicCardExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵeh", function() { return CardConfigExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵei", function() { return AccordionExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵej", function() { return BasicExpansionExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵek", function() { return LazyExpansionExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵel", function() { return BasicHeaderExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵem", function() { return CondensedHeaderExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵen", function() { return HeaderSearchbarExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵeo", function() { return HeaderSubtitleExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵep", function() { return BasicListExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵeq", function() { return ThemedListExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵer", function() { return StepperHorizontalExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵes", function() { return StepperVerticalExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵet", function() { return TabsBasicExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵeu", function() { return TabsColorExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵev", function() { return TabsCondensedExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵew", function() { return TabsRouterExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵex", function() { return TabsVerticalExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵey", function() { return ActivitySectionExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵez", function() { return RecordHeaderExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfa", function() { return DateTranslationsExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfb", function() { return NumberTranslationsExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfc", function() { return PluralTranslationsExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfd", function() { return SimpleTranslationsExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfe", function() { return TranslationsVariablesExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵff", function() { return FiAddingRemovingExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfg", function() { return FiAsyncExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfh", function() { return FiCalculationExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfi", function() { return FiConfirmExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfj", function() { return FiEnableDisableExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfk", function() { return FiGlobalsExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfl", function() { return FiHideShowExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfm", function() { return FiMessagingExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfn", function() { return FiModifyOptionsExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfo", function() { return FiRequiredExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfp", function() { return FiTooltipExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfq", function() { return FiValidationExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfs", function() { return CustomModalExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfr", function() { return ModalCustomDemo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfu", function() { return ErrorModalExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵft", function() { return ModalErrorDemo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfv", function() { return ModalAddFormDemo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfw", function() { return ModalAddFormExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfx", function() { return ModalEditFormDemo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfy", function() { return ModalEditFormExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵfz", function() { return ModalSuccessDemo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵga", function() { return SuccessModalExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgb", function() { return ModalWarningDemo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgc", function() { return WarningModalExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgd", function() { return PluralizeExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵge", function() { return PopOverAutoPlacementExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgf", function() { return PopOverBehaviorsExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgg", function() { return PopOverDynamicExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgh", function() { return PopOverHorizontalExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgi", function() { return PopOverPlacementExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgj", function() { return PopOverVerticalExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgk", function() { return SecurityExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgl", function() { return BasicTipWellExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgm", function() { return ButtonlessTipWellExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgn", function() { return HtmlTipWellExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgo", function() { return IconTipWellExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgp", function() { return ToastServiceExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgq", function() { return ToastUsageExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgr", function() { return TooltipAlignExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgs", function() { return TooltipOptionsExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgt", function() { return TooltipPlacementExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgu", function() { return TooltipSizesExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgv", function() { return TooltipToggleExample; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ɵgw", function() { return TooltipTypesExample; });
 /* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! date-fns */ "./node_modules/date-fns/index.js");
 /* harmony import */ var date_fns__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(date_fns__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var chomsky__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! chomsky */ "./dist/chomsky/fesm5/chomsky.js");
@@ -59835,139 +60000,6 @@ var ScrollableDropDownExample = /** @class */ (function () {
  * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 /**
- * \@title Group Member Picker
- */
-var GroupMemberPickerBasicExample = /** @class */ (function () {
-    function GroupMemberPickerBasicExample() {
-        this.example_schema = [
-            {
-                typeName: 'colors',
-                typeLabel: 'Colors',
-                valueField: 'value',
-                labelField: 'name',
-            }, {
-                typeName: 'animals',
-                typeLabel: 'Animals',
-                valueField: 'animalId',
-                labelField: 'name',
-            }, {
-                typeName: 'places',
-                typeLabel: 'Places',
-                valueField: 'localName',
-                labelField: 'englishName',
-            }
-        ];
-        this.example_data = {
-            colors: [
-                {
-                    value: { r: 255, g: 0, b: 0 },
-                    name: 'Red',
-                }, {
-                    value: { r: 0, g: 255, b: 0 },
-                    name: 'Green',
-                }, {
-                    value: { r: 0, g: 0, b: 255 },
-                    name: 'Blue',
-                }, {
-                    value: { r: 255, g: 255, b: 255 },
-                    name: 'White',
-                }, {
-                    value: { r: 0, g: 0, b: 0 },
-                    name: 'Black',
-                },
-            ],
-            animals: [
-                {
-                    animalId: 1,
-                    name: 'Dog'
-                }, {
-                    animalId: 2,
-                    name: 'Cat'
-                }, {
-                    animalId: 3,
-                    name: 'Mouse'
-                }, {
-                    animalId: 4,
-                    name: 'Horse'
-                }, {
-                    animalId: 5,
-                    name: 'Cow'
-                }, {
-                    animalId: 6,
-                    name: 'Pig'
-                }, {
-                    animalId: 7,
-                    name: 'Chicken'
-                }, {
-                    animalId: 8,
-                    name: 'Sheep'
-                }, {
-                    animalId: 9,
-                    name: 'Goat'
-                }, {
-                    animalId: 10,
-                    name: 'Goose'
-                },
-            ],
-            places: [
-                {
-                    localName: 'Roma',
-                    englishName: 'Rome',
-                }, {
-                    localName: 'Firenze',
-                    englishName: 'Florence',
-                }, {
-                    localName: 'Munchen',
-                    englishName: 'Munich',
-                }, {
-                    localName: 'Paris',
-                    englishName: 'Paris',
-                }, {
-                    localName: 'Sevilla',
-                    englishName: 'Seville',
-                }, {
-                    localName: 'Athinai',
-                    englishName: 'Athens',
-                },
-            ]
-        };
-        this.example_buttonConfig = {
-            theme: 'dialog',
-            side: 'left',
-            icon: 'user-o',
-            label: 'Click Me',
-        };
-        this.selectedColors = [];
-        this.selectedAnimals = [];
-        this.selectedPlaces = [];
-    }
-    /**
-     * @param {?} selectedData
-     * @return {?}
-     */
-    GroupMemberPickerBasicExample.prototype.onSelectionChange = /**
-     * @param {?} selectedData
-     * @return {?}
-     */
-    function (selectedData) {
-        this.selectedColors = selectedData['colors'].map(function (color) { return JSON.stringify(color); });
-        this.selectedAnimals = selectedData['animals'];
-        this.selectedPlaces = selectedData['places'];
-    };
-    GroupMemberPickerBasicExample.decorators = [
-        { type: _angular_core__WEBPACK_IMPORTED_MODULE_11__["Component"], args: [{
-                    selector: 'group-member-picker-basic-example',
-                    template: "<div>Selected Color RGB values: {{ selectedColors.join(', ') }}</div>\r\n<div>Selected Animal IDs: {{ selectedAnimals.join(', ') }}</div>\r\n<div>Selected Local Place Names: {{ selectedPlaces.join(', ') }}</div>\r\n<novo-group-member-picker [typeSchema]=\"example_schema\"\r\n                          [buttonConfig]=\"example_buttonConfig\"\r\n                          [data]=\"example_data\"\r\n                          (selectionChange)=\"onSelectionChange($event)\"></novo-group-member-picker>\r\n"
-                }] }
-    ];
-    return GroupMemberPickerBasicExample;
-}());
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
  * \@title Basic Icons
  */
 var BasicIconsExample = /** @class */ (function () {
@@ -60432,6 +60464,216 @@ var SwitchUsageExample = /** @class */ (function () {
                 }] }
     ];
     return SwitchUsageExample;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * \@title Tabbed Group Picker - Basic Example
+ */
+var TabbedGroupPickerBasicExample = /** @class */ (function () {
+    function TabbedGroupPickerBasicExample() {
+        this.example_schema = [
+            {
+                typeName: 'animals',
+                typeLabel: 'Animals',
+                valueField: 'animalId',
+                labelField: 'name',
+            }, {
+                typeName: 'places',
+                typeLabel: 'Places',
+                valueField: 'localName',
+                labelField: 'englishName',
+            },
+        ];
+        this.example_data = {
+            animals: [
+                {
+                    animalId: 1,
+                    name: 'Dog'
+                }, {
+                    animalId: 2,
+                    name: 'Cat'
+                }, {
+                    animalId: 3,
+                    name: 'Mouse'
+                }, {
+                    animalId: 4,
+                    name: 'Horse'
+                }, {
+                    animalId: 5,
+                    name: 'Cow'
+                }, {
+                    animalId: 6,
+                    name: 'Pig'
+                }, {
+                    animalId: 7,
+                    name: 'Chicken'
+                }, {
+                    animalId: 8,
+                    name: 'Sheep'
+                }, {
+                    animalId: 9,
+                    name: 'Goat'
+                }, {
+                    animalId: 10,
+                    name: 'Goose'
+                },
+            ],
+            places: [
+                {
+                    localName: 'Roma',
+                    englishName: 'Rome',
+                }, {
+                    localName: 'Firenze',
+                    englishName: 'Florence',
+                }, {
+                    localName: 'Munchen',
+                    englishName: 'Munich',
+                }, {
+                    localName: 'Paris',
+                    englishName: 'Paris',
+                }, {
+                    localName: 'Sevilla',
+                    englishName: 'Seville',
+                }, {
+                    localName: 'Athinai',
+                    englishName: 'Athens',
+                },
+            ],
+        };
+        this.example_buttonConfig = {
+            theme: 'dialog',
+            side: 'left',
+            icon: 'user-o',
+            label: 'Click Me',
+        };
+        this.selectedAnimals = [];
+        this.selectedPlaces = [];
+    }
+    /**
+     * @param {?} selectedData
+     * @return {?}
+     */
+    TabbedGroupPickerBasicExample.prototype.onSelectionChange = /**
+     * @param {?} selectedData
+     * @return {?}
+     */
+    function (selectedData) {
+        this.selectedAnimals = selectedData['animals'];
+        this.selectedPlaces = selectedData['places'];
+    };
+    TabbedGroupPickerBasicExample.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_11__["Component"], args: [{
+                    selector: 'tabbed-group-picker-basic-example',
+                    template: "<div>Selected Animal IDs: {{ selectedAnimals.join(', ') }}</div>\n<div>Selected Local Place Names: {{ selectedPlaces.join(', ') }}</div>\n<novo-tabbed-group-picker [typeSchema]=\"example_schema\"\n                          [buttonConfig]=\"example_buttonConfig\"\n                          [data]=\"example_data\"\n                          (selectionChange)=\"onSelectionChange($event)\"></novo-tabbed-group-picker>\n"
+                }] }
+    ];
+    return TabbedGroupPickerBasicExample;
+}());
+
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+/**
+ * \@title Tabbed Group Picker - Quick Select Example
+ */
+var TabbedGroupPickerQuickSelectExample = /** @class */ (function () {
+    function TabbedGroupPickerQuickSelectExample() {
+        this.example_schema = [
+            {
+                typeName: 'animals',
+                typeLabel: 'Animals',
+                valueField: 'animalId',
+                labelField: 'name',
+            }
+        ];
+        this.example_quickSelectConfig = [
+            {
+                typeName: 'animals',
+                values: [1],
+                label: 'Best Animal'
+            },
+            {
+                typeName: 'animals',
+                values: [2],
+                label: 'Pure Evil'
+            },
+            {
+                typeName: 'animals',
+                values: [7, 10],
+                label: 'Birds'
+            },
+            {
+                typeName: 'animals',
+                all: true,
+                label: 'All Animals'
+            },
+        ];
+        this.example_data = {
+            animals: [
+                {
+                    animalId: 1,
+                    name: 'Dog'
+                }, {
+                    animalId: 2,
+                    name: 'Cat'
+                }, {
+                    animalId: 3,
+                    name: 'Mouse'
+                }, {
+                    animalId: 4,
+                    name: 'Horse'
+                }, {
+                    animalId: 5,
+                    name: 'Cow'
+                }, {
+                    animalId: 6,
+                    name: 'Pig'
+                }, {
+                    animalId: 7,
+                    name: 'Chicken'
+                }, {
+                    animalId: 8,
+                    name: 'Sheep'
+                }, {
+                    animalId: 9,
+                    name: 'Goat'
+                }, {
+                    animalId: 10,
+                    name: 'Goose'
+                },
+            ],
+        };
+        this.example_buttonConfig = {
+            theme: 'dialog',
+            side: 'left',
+            icon: 'user-o',
+            label: 'Click Me',
+        };
+        this.selectedAnimals = [];
+    }
+    /**
+     * @param {?} selectedData
+     * @return {?}
+     */
+    TabbedGroupPickerQuickSelectExample.prototype.onSelectionChange = /**
+     * @param {?} selectedData
+     * @return {?}
+     */
+    function (selectedData) {
+        this.selectedAnimals = selectedData['animals'];
+    };
+    TabbedGroupPickerQuickSelectExample.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_11__["Component"], args: [{
+                    selector: 'tabbed-group-picker-quick-select-example',
+                    template: "<div>Selected Animal IDs: {{ selectedAnimals.join(', ') }}</div>\n<novo-tabbed-group-picker [typeSchema]=\"example_schema\"\n                          [quickSelectConfig]=\"example_quickSelectConfig\"\n                          [buttonConfig]=\"example_buttonConfig\"\n                          [data]=\"example_data\"\n                          (selectionChange)=\"onSelectionChange($event)\"></novo-tabbed-group-picker>\n"
+                }] }
+    ];
+    return TabbedGroupPickerQuickSelectExample;
 }());
 
 /**
@@ -71688,13 +71930,6 @@ var EXAMPLE_COMPONENTS = {
         cssSource: "%2F**%20CSS%20for%20this%20example%20*%2F%0D%0A%3Ahost%20%7B%0D%0A%20%20background%3A%20%234a89dc%3B%0D%0A%20%20display%3A%20block%3B%0D%0A%20%20justify-content%3A%20space-between%3B%0D%0A%20%20align-items%3A%20center%3B%0D%0A%20%20padding%3A%200.5rem%3B%0D%0A%7D%0D%0A%3Ahost%20.scrollable-container%20%7B%0D%0A%20%20max-height%3A%2010rem%3B%0D%0A%20%20overflow%3A%20scroll%3B%0D%0A%7D%0D%0A%3Ahost%20.scrollable-container%20.scrollable-content%20%7B%0D%0A%20%20height%3A%2030em%3B%0D%0A%7D%0D%0A%3Ahost%20novo-dropdown%20%7B%0D%0A%20%20margin%3A%205rem%3B%0D%0A%7D%0D%0A",
         htmlSource: "%3Cdiv%20class%3D%22scrollable-container%22%20cdkScrollable%3E%0D%0A%20%20%20%20%3Cdiv%20class%3D%22scrollable-content%22%3E%0D%0A%20%20%20%20%20%20%3Cnovo-dropdown%3E%0D%0A%20%20%20%20%20%20%20%20%3Cbutton%20type%3D%22button%22%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20theme%3D%22secondary%22%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20icon%3D%22collapse%22%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20inverse%3EInside%20a%20Scrollable%20Container%3C%2Fbutton%3E%0D%0A%20%20%20%20%20%20%20%20%3Clist%3E%0D%0A%20%20%20%20%20%20%20%20%20%20%3Citem%20(action)%3D%22clickMe('This')%22%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20keepOpen%3D%22true%22%3EThis%3C%2Fitem%3E%0D%0A%20%20%20%20%20%20%20%20%20%20%3Citem%20(action)%3D%22clickMe('Scrolls!')%22%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20keepOpen%3D%22true%22%3EScrolls!%3C%2Fitem%3E%0D%0A%20%20%20%20%20%20%20%20%3C%2Flist%3E%0D%0A%20%20%20%20%20%20%3C%2Fnovo-dropdown%3E%0D%0A%20%20%20%20%3C%2Fdiv%3E%0D%0A%20%20%3C%2Fdiv%3E%0D%0A"
     },
-    'group-member-picker-basic': {
-        title: 'Group Member Picker',
-        component: GroupMemberPickerBasicExample,
-        tsSource: "import%20%7BComponent%7D%20from%20'%40angular%2Fcore'%3B%0D%0A%0D%0A%2F**%0D%0A%20*%20%40title%20Group%20Member%20Picker%0D%0A%20*%2F%0D%0A%40Component(%7B%0D%0A%20%20selector%3A%20'group-member-picker-basic-example'%2C%0D%0A%20%20templateUrl%3A%20'group-member-picker-basic-example.html'%2C%0D%0A%20%20%2F%2F%20styleUrls%3A%20%5B'large-drop-down-example.css'%5D%2C%0D%0A%7D)%0D%0Aexport%20class%20GroupMemberPickerBasicExample%20%7B%0D%0A%20%20public%20example_schema%20%3D%20%5B%0D%0A%20%20%20%20%7B%0D%0A%20%20%20%20%20%20typeName%3A%20'colors'%2C%0D%0A%20%20%20%20%20%20typeLabel%3A%20'Colors'%2C%0D%0A%20%20%20%20%20%20valueField%3A%20'value'%2C%0D%0A%20%20%20%20%20%20labelField%3A%20'name'%2C%0D%0A%20%20%20%20%7D%2C%20%7B%0D%0A%20%20%20%20%20%20typeName%3A%20'animals'%2C%0D%0A%20%20%20%20%20%20typeLabel%3A%20'Animals'%2C%0D%0A%20%20%20%20%20%20valueField%3A%20'animalId'%2C%0D%0A%20%20%20%20%20%20labelField%3A%20'name'%2C%0D%0A%20%20%20%20%7D%2C%20%7B%0D%0A%20%20%20%20%20%20typeName%3A%20'places'%2C%0D%0A%20%20%20%20%20%20typeLabel%3A%20'Places'%2C%0D%0A%20%20%20%20%20%20valueField%3A%20'localName'%2C%0D%0A%20%20%20%20%20%20labelField%3A%20'englishName'%2C%0D%0A%20%20%20%20%7D%0D%0A%20%20%5D%3B%0D%0A%20%20public%20example_data%3A%20any%20%3D%20%7B%0D%0A%20%20%20%20colors%3A%20%5B%0D%0A%20%20%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20value%3A%20%7B%20r%3A%20255%2C%20g%3A%200%2C%20b%3A%200%20%7D%2C%0D%0A%20%20%20%20%20%20%20%20name%3A%20'Red'%2C%0D%0A%20%20%20%20%20%20%7D%2C%20%7B%0D%0A%20%20%20%20%20%20%20%20value%3A%20%7B%20r%3A%200%2C%20g%3A%20255%2C%20b%3A%200%20%7D%2C%0D%0A%20%20%20%20%20%20%20%20name%3A%20'Green'%2C%0D%0A%20%20%20%20%20%20%7D%2C%20%7B%0D%0A%20%20%20%20%20%20%20%20value%3A%20%7B%20r%3A%200%2C%20g%3A%200%2C%20b%3A%20255%20%7D%2C%0D%0A%20%20%20%20%20%20%20%20name%3A%20'Blue'%2C%0D%0A%20%20%20%20%20%20%7D%2C%20%7B%0D%0A%20%20%20%20%20%20%20%20value%3A%20%7B%20r%3A%20255%2C%20g%3A%20255%2C%20b%3A%20255%20%7D%2C%0D%0A%20%20%20%20%20%20%20%20name%3A%20'White'%2C%0D%0A%20%20%20%20%20%20%7D%2C%20%7B%0D%0A%20%20%20%20%20%20%20%20value%3A%20%7B%20r%3A%200%2C%20g%3A%200%2C%20b%3A%200%20%7D%2C%0D%0A%20%20%20%20%20%20%20%20name%3A%20'Black'%2C%0D%0A%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%5D%2C%0D%0A%20%20%20%20animals%3A%20%5B%0D%0A%20%20%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20animalId%3A%201%2C%0D%0A%20%20%20%20%20%20%20%20name%3A%20'Dog'%0D%0A%20%20%20%20%20%20%7D%2C%20%7B%0D%0A%20%20%20%20%20%20%20%20animalId%3A%202%2C%0D%0A%20%20%20%20%20%20%20%20name%3A%20'Cat'%0D%0A%20%20%20%20%20%20%7D%2C%20%7B%0D%0A%20%20%20%20%20%20%20%20animalId%3A%203%2C%0D%0A%20%20%20%20%20%20%20%20name%3A%20'Mouse'%0D%0A%20%20%20%20%20%20%7D%2C%20%7B%0D%0A%20%20%20%20%20%20%20%20animalId%3A%204%2C%0D%0A%20%20%20%20%20%20%20%20name%3A%20'Horse'%0D%0A%20%20%20%20%20%20%7D%2C%20%7B%0D%0A%20%20%20%20%20%20%20%20animalId%3A%205%2C%0D%0A%20%20%20%20%20%20%20%20name%3A%20'Cow'%0D%0A%20%20%20%20%20%20%7D%2C%20%7B%0D%0A%20%20%20%20%20%20%20%20animalId%3A%206%2C%0D%0A%20%20%20%20%20%20%20%20name%3A%20'Pig'%0D%0A%20%20%20%20%20%20%7D%2C%20%7B%0D%0A%20%20%20%20%20%20%20%20animalId%3A%207%2C%0D%0A%20%20%20%20%20%20%20%20name%3A%20'Chicken'%0D%0A%20%20%20%20%20%20%7D%2C%20%7B%0D%0A%20%20%20%20%20%20%20%20animalId%3A%208%2C%0D%0A%20%20%20%20%20%20%20%20name%3A%20'Sheep'%0D%0A%20%20%20%20%20%20%7D%2C%20%7B%0D%0A%20%20%20%20%20%20%20%20animalId%3A%209%2C%0D%0A%20%20%20%20%20%20%20%20name%3A%20'Goat'%0D%0A%20%20%20%20%20%20%7D%2C%20%7B%0D%0A%20%20%20%20%20%20%20%20animalId%3A%2010%2C%0D%0A%20%20%20%20%20%20%20%20name%3A%20'Goose'%0D%0A%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%5D%2C%0D%0A%20%20%20%20places%3A%20%5B%0D%0A%20%20%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20localName%3A%20'Roma'%2C%0D%0A%20%20%20%20%20%20%20%20englishName%3A%20'Rome'%2C%0D%0A%20%20%20%20%20%20%7D%2C%20%7B%0D%0A%20%20%20%20%20%20%20%20localName%3A%20'Firenze'%2C%0D%0A%20%20%20%20%20%20%20%20englishName%3A%20'Florence'%2C%0D%0A%20%20%20%20%20%20%7D%2C%20%7B%0D%0A%20%20%20%20%20%20%20%20localName%3A%20'Munchen'%2C%0D%0A%20%20%20%20%20%20%20%20englishName%3A%20'Munich'%2C%0D%0A%20%20%20%20%20%20%7D%2C%20%7B%0D%0A%20%20%20%20%20%20%20%20localName%3A%20'Paris'%2C%0D%0A%20%20%20%20%20%20%20%20englishName%3A%20'Paris'%2C%0D%0A%20%20%20%20%20%20%7D%2C%20%7B%0D%0A%20%20%20%20%20%20%20%20localName%3A%20'Sevilla'%2C%0D%0A%20%20%20%20%20%20%20%20englishName%3A%20'Seville'%2C%0D%0A%20%20%20%20%20%20%7D%2C%20%7B%0D%0A%20%20%20%20%20%20%20%20localName%3A%20'Athinai'%2C%0D%0A%20%20%20%20%20%20%20%20englishName%3A%20'Athens'%2C%0D%0A%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%5D%0D%0A%20%20%7D%3B%0D%0A%0D%0A%20%20public%20example_buttonConfig%20%3D%20%7B%0D%0A%20%20%20%20theme%3A%20'dialog'%2C%0D%0A%20%20%20%20side%3A%20'left'%2C%0D%0A%20%20%20%20icon%3A%20'user-o'%2C%0D%0A%20%20%20%20label%3A%20'Click%20Me'%2C%0D%0A%20%20%7D%3B%0D%0A%0D%0A%20%20public%20selectedColors%3A%20any%5B%5D%20%3D%20%5B%5D%3B%0D%0A%20%20public%20selectedAnimals%3A%20any%5B%5D%20%3D%20%5B%5D%3B%0D%0A%20%20public%20selectedPlaces%3A%20any%5B%5D%20%3D%20%5B%5D%3B%0D%0A%0D%0A%20%20onSelectionChange(selectedData)%20%7B%0D%0A%20%20%20%20this.selectedColors%20%3D%20selectedData%5B'colors'%5D.map(color%20%3D%3E%20JSON.stringify(color))%3B%0D%0A%20%20%20%20this.selectedAnimals%20%3D%20selectedData%5B'animals'%5D%3B%0D%0A%20%20%20%20this.selectedPlaces%20%3D%20selectedData%5B'places'%5D%3B%0D%0A%20%20%7D%0D%0A%7D%0D%0A",
-        cssSource: "",
-        htmlSource: "%3Cdiv%3ESelected%20Color%20RGB%20values%3A%20%7B%7B%20selectedColors.join('%2C%20')%20%7D%7D%3C%2Fdiv%3E%0D%0A%3Cdiv%3ESelected%20Animal%20IDs%3A%20%7B%7B%20selectedAnimals.join('%2C%20')%20%7D%7D%3C%2Fdiv%3E%0D%0A%3Cdiv%3ESelected%20Local%20Place%20Names%3A%20%7B%7B%20selectedPlaces.join('%2C%20')%20%7D%7D%3C%2Fdiv%3E%0D%0A%3Cnovo-group-member-picker%20%5BtypeSchema%5D%3D%22example_schema%22%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5BbuttonConfig%5D%3D%22example_buttonConfig%22%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5Bdata%5D%3D%22example_data%22%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20(selectionChange)%3D%22onSelectionChange(%24event)%22%3E%3C%2Fnovo-group-member-picker%3E%0D%0A"
-    },
     'basic-icons': {
         title: 'Basic Icons',
         component: BasicIconsExample,
@@ -71772,6 +72007,20 @@ var EXAMPLE_COMPONENTS = {
         tsSource: "import%20%7B%20Component%20%7D%20from%20'%40angular%2Fcore'%3B%0D%0A%0D%0A%2F**%0D%0A%20*%20%40title%20Switch%20Usage%20Example%0D%0A%20*%2F%0D%0A%40Component(%7B%0D%0A%20%20selector%3A%20'switch-usage-example'%2C%0D%0A%20%20templateUrl%3A%20'switch-usage-example.html'%2C%0D%0A%20%20styleUrls%3A%20%5B'switch-usage-example.css'%5D%2C%0D%0A%7D)%0D%0Aexport%20class%20SwitchUsageExample%20%7B%0D%0A%20%20public%20toggleCount%3A%20number%20%3D%200%3B%0D%0A%20%20public%20checked%3A%20boolean%20%3D%20true%3B%0D%0A%0D%0A%20%20public%20increment()%3A%20void%20%7B%0D%0A%20%20%20%20this.toggleCount%2B%2B%3B%0D%0A%20%20%7D%0D%0A%7D%0D%0A",
         cssSource: "%2F**%20No%20CSS%20for%20this%20example%20*%2F%0D%0A",
         htmlSource: "%3Clabel%3E%0D%0A%20%20Count%0D%0A%20%20%3Cspan%3E%7B%7BtoggleCount%7D%7D%3C%2Fspan%3E%0D%0A%3C%2Flabel%3E%0D%0A%3Clabel%3E%0D%0A%20%20Toggled%0D%0A%20%20%3Cspan%3E%7B%7Bchecked%7D%7D%3C%2Fspan%3E%0D%0A%3C%2Flabel%3E%0D%0A%3Cnovo-switch%20%5B(ngModel)%5D%3D%22checked%22%20(onChange)%3D%22increment()%22%3E%3C%2Fnovo-switch%3E%0D%0A%3Cnovo-switch%20theme%3D%22grapefruit%22%3E%3C%2Fnovo-switch%3E%0D%0A%3Cnovo-switch%20disabled%3E%3C%2Fnovo-switch%3E%0D%0A"
+    },
+    'tabbed-group-picker-basic': {
+        title: 'Tabbed Group Picker - Basic Example',
+        component: TabbedGroupPickerBasicExample,
+        tsSource: "import%20%7BComponent%7D%20from%20'%40angular%2Fcore'%3B%0A%0A%2F**%0A%20*%20%40title%20Tabbed%20Group%20Picker%20-%20Basic%20Example%0A%20*%2F%0A%40Component(%7B%0A%20%20selector%3A%20'tabbed-group-picker-basic-example'%2C%0A%20%20templateUrl%3A%20'tabbed-group-picker-basic-example.html'%2C%0A%7D)%0Aexport%20class%20TabbedGroupPickerBasicExample%20%7B%0A%20%20public%20example_schema%20%3D%20%5B%0A%20%20%20%20%7B%0A%20%20%20%20%20%20typeName%3A%20'animals'%2C%0A%20%20%20%20%20%20typeLabel%3A%20'Animals'%2C%0A%20%20%20%20%20%20valueField%3A%20'animalId'%2C%0A%20%20%20%20%20%20labelField%3A%20'name'%2C%0A%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20typeName%3A%20'places'%2C%0A%20%20%20%20%20%20typeLabel%3A%20'Places'%2C%0A%20%20%20%20%20%20valueField%3A%20'localName'%2C%0A%20%20%20%20%20%20labelField%3A%20'englishName'%2C%0A%20%20%20%20%7D%2C%0A%20%20%5D%3B%0A%20%20public%20example_data%3A%20any%20%3D%20%7B%0A%20%20%20%20animals%3A%20%5B%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%201%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Dog'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%202%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Cat'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%203%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Mouse'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%204%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Horse'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%205%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Cow'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%206%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Pig'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%207%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Chicken'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%208%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Sheep'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%209%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Goat'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%2010%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Goose'%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%5D%2C%0A%20%20%20%20places%3A%20%5B%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20localName%3A%20'Roma'%2C%0A%20%20%20%20%20%20%20%20englishName%3A%20'Rome'%2C%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20localName%3A%20'Firenze'%2C%0A%20%20%20%20%20%20%20%20englishName%3A%20'Florence'%2C%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20localName%3A%20'Munchen'%2C%0A%20%20%20%20%20%20%20%20englishName%3A%20'Munich'%2C%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20localName%3A%20'Paris'%2C%0A%20%20%20%20%20%20%20%20englishName%3A%20'Paris'%2C%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20localName%3A%20'Sevilla'%2C%0A%20%20%20%20%20%20%20%20englishName%3A%20'Seville'%2C%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20localName%3A%20'Athinai'%2C%0A%20%20%20%20%20%20%20%20englishName%3A%20'Athens'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%5D%2C%0A%20%20%7D%3B%0A%0A%20%20public%20example_buttonConfig%20%3D%20%7B%0A%20%20%20%20theme%3A%20'dialog'%2C%0A%20%20%20%20side%3A%20'left'%2C%0A%20%20%20%20icon%3A%20'user-o'%2C%0A%20%20%20%20label%3A%20'Click%20Me'%2C%0A%20%20%7D%3B%0A%0A%20%20public%20selectedAnimals%3A%20any%5B%5D%20%3D%20%5B%5D%3B%0A%20%20public%20selectedPlaces%3A%20any%5B%5D%20%3D%20%5B%5D%3B%0A%0A%20%20onSelectionChange(selectedData)%20%7B%0A%20%20%20%20this.selectedAnimals%20%3D%20selectedData%5B'animals'%5D%3B%0A%20%20%20%20this.selectedPlaces%20%3D%20selectedData%5B'places'%5D%3B%0A%20%20%7D%0A%7D%0A",
+        cssSource: "",
+        htmlSource: "%3Cdiv%3ESelected%20Animal%20IDs%3A%20%7B%7B%20selectedAnimals.join('%2C%20')%20%7D%7D%3C%2Fdiv%3E%0A%3Cdiv%3ESelected%20Local%20Place%20Names%3A%20%7B%7B%20selectedPlaces.join('%2C%20')%20%7D%7D%3C%2Fdiv%3E%0A%3Cnovo-tabbed-group-picker%20%5BtypeSchema%5D%3D%22example_schema%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5BbuttonConfig%5D%3D%22example_buttonConfig%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5Bdata%5D%3D%22example_data%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20(selectionChange)%3D%22onSelectionChange(%24event)%22%3E%3C%2Fnovo-tabbed-group-picker%3E%0A"
+    },
+    'tabbed-group-picker-quick-select': {
+        title: 'Tabbed Group Picker - Quick Select Example',
+        component: TabbedGroupPickerQuickSelectExample,
+        tsSource: "import%20%7BComponent%7D%20from%20'%40angular%2Fcore'%3B%0A%0A%2F**%0A%20*%20%40title%20Tabbed%20Group%20Picker%20-%20Quick%20Select%20Example%0A%20*%2F%0A%40Component(%7B%0A%20%20selector%3A%20'tabbed-group-picker-quick-select-example'%2C%0A%20%20templateUrl%3A%20'tabbed-group-picker-quick-select-example.html'%2C%0A%7D)%0Aexport%20class%20TabbedGroupPickerQuickSelectExample%20%7B%0A%20%20public%20example_schema%20%3D%20%5B%0A%20%20%20%20%7B%0A%20%20%20%20%20%20typeName%3A%20'animals'%2C%0A%20%20%20%20%20%20typeLabel%3A%20'Animals'%2C%0A%20%20%20%20%20%20valueField%3A%20'animalId'%2C%0A%20%20%20%20%20%20labelField%3A%20'name'%2C%0A%20%20%20%20%7D%0A%20%20%5D%3B%0A%20%20public%20example_quickSelectConfig%20%3D%20%5B%0A%20%20%20%20%7B%0A%20%20%20%20%20%20typeName%3A%20'animals'%2C%0A%20%20%20%20%20%20values%3A%20%5B1%5D%2C%0A%20%20%20%20%20%20label%3A%20'Best%20Animal'%0A%20%20%20%20%7D%2C%0A%20%20%20%20%7B%0A%20%20%20%20%20%20typeName%3A%20'animals'%2C%0A%20%20%20%20%20%20values%3A%20%5B2%5D%2C%0A%20%20%20%20%20%20label%3A%20'Pure%20Evil'%0A%20%20%20%20%7D%2C%0A%20%20%20%20%7B%0A%20%20%20%20%20%20typeName%3A%20'animals'%2C%0A%20%20%20%20%20%20values%3A%20%5B7%2C%2010%5D%2C%0A%20%20%20%20%20%20label%3A%20'Birds'%0A%20%20%20%20%7D%2C%0A%20%20%20%20%7B%0A%20%20%20%20%20%20typeName%3A%20'animals'%2C%0A%20%20%20%20%20%20all%3A%20true%2C%0A%20%20%20%20%20%20label%3A%20'All%20Animals'%0A%20%20%20%20%7D%2C%0A%20%20%5D%3B%0A%20%20public%20example_data%3A%20any%20%3D%20%7B%0A%20%20%20%20animals%3A%20%5B%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%201%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Dog'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%202%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Cat'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%203%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Mouse'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%204%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Horse'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%205%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Cow'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%206%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Pig'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%207%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Chicken'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%208%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Sheep'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%209%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Goat'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%2010%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Goose'%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%5D%2C%0A%20%20%7D%3B%0A%0A%20%20public%20example_buttonConfig%20%3D%20%7B%0A%20%20%20%20theme%3A%20'dialog'%2C%0A%20%20%20%20side%3A%20'left'%2C%0A%20%20%20%20icon%3A%20'user-o'%2C%0A%20%20%20%20label%3A%20'Click%20Me'%2C%0A%20%20%7D%3B%0A%0A%20%20public%20selectedAnimals%3A%20any%5B%5D%20%3D%20%5B%5D%3B%0A%0A%20%20onSelectionChange(selectedData)%20%7B%0A%20%20%20%20this.selectedAnimals%20%3D%20selectedData%5B'animals'%5D%3B%0A%20%20%7D%0A%7D%0A",
+        cssSource: "",
+        htmlSource: "%3Cdiv%3ESelected%20Animal%20IDs%3A%20%7B%7B%20selectedAnimals.join('%2C%20')%20%7D%7D%3C%2Fdiv%3E%0A%3Cnovo-tabbed-group-picker%20%5BtypeSchema%5D%3D%22example_schema%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5BquickSelectConfig%5D%3D%22example_quickSelectConfig%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5BbuttonConfig%5D%3D%22example_buttonConfig%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5Bdata%5D%3D%22example_data%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20(selectionChange)%3D%22onSelectionChange(%24event)%22%3E%3C%2Fnovo-tabbed-group-picker%3E%0A"
     },
     'actions-cell': {
         title: 'Actions Cell Example',
@@ -72733,7 +72982,6 @@ var EXAMPLE_LIST = [
     MultiDropDownExample,
     PositionDropDownExample,
     ScrollableDropDownExample,
-    GroupMemberPickerBasicExample,
     BasicIconsExample,
     RaisedIconsExample,
     ThemedIconsExample,
@@ -72745,6 +72993,8 @@ var EXAMPLE_LIST = [
     SearchUsageExample,
     BasicSlideExample,
     SwitchUsageExample,
+    TabbedGroupPickerBasicExample,
+    TabbedGroupPickerQuickSelectExample,
     ActionsCellExample,
     ExtraDetails, DetailsTableExample,
     EditableTableExample,
@@ -73746,17 +73996,6 @@ var DropdownPage = /** @class */ (function () {
     ];
     return DropdownPage;
 }());
-var GroupMemberPickerPage = /** @class */ (function () {
-    function GroupMemberPickerPage() {
-    }
-    GroupMemberPickerPage.decorators = [
-        { type: _angular_core__WEBPACK_IMPORTED_MODULE_11__["Component"], args: [{
-                    selector: 'group-member-picker-page',
-                    template: "<h1>Group Member Picker <a href=\"https://github.com/bullhorn/novo-elements/blob/master/projects/novo-elements/src/elements/group-member-picker\">(source)</a></h1><h5>Basic</h5><p>Group Member Picker allows for nested selection of groups and members via a tabbed interface.</p><p><code-example example=\"group-member-picker-basic\"></code-example></p>"
-                }] }
-    ];
-    return GroupMemberPickerPage;
-}());
 var IconPage = /** @class */ (function () {
     function IconPage() {
     }
@@ -73822,6 +74061,17 @@ var SwitchPage = /** @class */ (function () {
                 }] }
     ];
     return SwitchPage;
+}());
+var TabbedGroupPickerPage = /** @class */ (function () {
+    function TabbedGroupPickerPage() {
+    }
+    TabbedGroupPickerPage.decorators = [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_11__["Component"], args: [{
+                    selector: 'tabbed-group-picker-page',
+                    template: "<h1>Tabbed Group Picker <a href=\"https://github.com/bullhorn/novo-elements/blob/master/projects/novo-elements/src/elements/tabbed-group-picker\">(source)</a></h1><p>Tabbed Group Picker allows for nested selection of groups and members via a tabbed interface.</p><p><code-example example=\"tabbed-group-picker-basic\"></code-example></p><p><code-example example=\"tabbed-group-picker-quick-select\"></code-example></p>"
+                }] }
+    ];
+    return TabbedGroupPickerPage;
 }());
 var TablePage = /** @class */ (function () {
     function TablePage() {
@@ -74230,7 +74480,7 @@ var TooltipPage = /** @class */ (function () {
     ];
     return TooltipPage;
 }());
-var ɵ0 = { title: 'Ace Editor', section: 'components' }, ɵ1 = { title: 'Buttons', section: 'components' }, ɵ2 = { title: 'Calendar', section: 'components' }, ɵ3 = { title: 'Components', section: 'src' }, ɵ4 = { title: 'Data Table', section: 'components' }, ɵ5 = { title: 'Dropdown', section: 'components' }, ɵ6 = { title: 'Group Member Picker', section: 'components' }, ɵ7 = { title: 'Icon', section: 'components' }, ɵ8 = { title: 'Loading', section: 'components' }, ɵ9 = { title: 'Quick Note', section: 'components' }, ɵ10 = { title: 'Search', section: 'components' }, ɵ11 = { title: 'Slides', section: 'components' }, ɵ12 = { title: 'Switch', section: 'components' }, ɵ13 = { title: 'Table', section: 'components' }, ɵ14 = { title: 'Colors', section: 'design' }, ɵ15 = { title: 'Composition', section: 'design' }, ɵ16 = { title: 'Design', section: 'src' }, ɵ17 = { title: 'Iconography', section: 'design' }, ɵ18 = { title: 'Typography', section: 'design' }, ɵ19 = { title: 'Chips', section: 'form-controls' }, ɵ20 = { title: 'Date Picker', section: 'form-controls' }, ɵ21 = { title: 'Editor', section: 'form-controls' }, ɵ22 = { title: 'Form Controls', section: 'src' }, ɵ23 = { title: 'Form Groups', section: 'form-controls' }, ɵ24 = { title: 'Form', section: 'form-controls' }, ɵ25 = { title: 'Multi Picker', section: 'form-controls' }, ɵ26 = { title: 'Picker', section: 'form-controls' }, ɵ27 = { title: 'Radio Buttons', section: 'form-controls' }, ɵ28 = { title: 'Select', section: 'form-controls' }, ɵ29 = { title: 'Tiles', section: 'form-controls' }, ɵ30 = { title: 'Value', section: 'form-controls' }, ɵ31 = { title: 'Home', section: 'src' }, ɵ32 = { title: 'Cards', section: 'layouts' }, ɵ33 = { title: 'Expansion', section: 'layouts' }, ɵ34 = { title: 'Header', section: 'layouts' }, ɵ35 = { title: 'Layouts', section: 'src' }, ɵ36 = { title: 'List', section: 'layouts' }, ɵ37 = { title: 'Stepper', section: 'layouts' }, ɵ38 = { title: 'Tabs', section: 'layouts' }, ɵ39 = { title: 'Patterns', section: 'src' }, ɵ40 = { title: 'Templates', section: 'src' }, ɵ41 = { title: 'Chomsky', section: 'utils' }, ɵ42 = { title: 'Field Interactions', section: 'utils' }, ɵ43 = { title: 'Modal', section: 'utils' }, ɵ44 = { title: 'Pipes', section: 'utils' }, ɵ45 = { title: 'Pop Over', section: 'utils' }, ɵ46 = { title: 'Security', section: 'utils' }, ɵ47 = { title: 'Tip Well', section: 'utils' }, ɵ48 = { title: 'Toaster', section: 'utils' }, ɵ49 = { title: 'Tooltip', section: 'utils' }, ɵ50 = {};
+var ɵ0 = { title: 'Ace Editor', section: 'components' }, ɵ1 = { title: 'Buttons', section: 'components' }, ɵ2 = { title: 'Calendar', section: 'components' }, ɵ3 = { title: 'Components', section: 'src' }, ɵ4 = { title: 'Data Table', section: 'components' }, ɵ5 = { title: 'Dropdown', section: 'components' }, ɵ6 = { title: 'Icon', section: 'components' }, ɵ7 = { title: 'Loading', section: 'components' }, ɵ8 = { title: 'Quick Note', section: 'components' }, ɵ9 = { title: 'Search', section: 'components' }, ɵ10 = { title: 'Slides', section: 'components' }, ɵ11 = { title: 'Switch', section: 'components' }, ɵ12 = { title: 'Tabbed Group Picker', section: 'components' }, ɵ13 = { title: 'Table', section: 'components' }, ɵ14 = { title: 'Colors', section: 'design' }, ɵ15 = { title: 'Composition', section: 'design' }, ɵ16 = { title: 'Design', section: 'src' }, ɵ17 = { title: 'Iconography', section: 'design' }, ɵ18 = { title: 'Typography', section: 'design' }, ɵ19 = { title: 'Chips', section: 'form-controls' }, ɵ20 = { title: 'Date Picker', section: 'form-controls' }, ɵ21 = { title: 'Editor', section: 'form-controls' }, ɵ22 = { title: 'Form Controls', section: 'src' }, ɵ23 = { title: 'Form Groups', section: 'form-controls' }, ɵ24 = { title: 'Form', section: 'form-controls' }, ɵ25 = { title: 'Multi Picker', section: 'form-controls' }, ɵ26 = { title: 'Picker', section: 'form-controls' }, ɵ27 = { title: 'Radio Buttons', section: 'form-controls' }, ɵ28 = { title: 'Select', section: 'form-controls' }, ɵ29 = { title: 'Tiles', section: 'form-controls' }, ɵ30 = { title: 'Value', section: 'form-controls' }, ɵ31 = { title: 'Home', section: 'src' }, ɵ32 = { title: 'Cards', section: 'layouts' }, ɵ33 = { title: 'Expansion', section: 'layouts' }, ɵ34 = { title: 'Header', section: 'layouts' }, ɵ35 = { title: 'Layouts', section: 'src' }, ɵ36 = { title: 'List', section: 'layouts' }, ɵ37 = { title: 'Stepper', section: 'layouts' }, ɵ38 = { title: 'Tabs', section: 'layouts' }, ɵ39 = { title: 'Patterns', section: 'src' }, ɵ40 = { title: 'Templates', section: 'src' }, ɵ41 = { title: 'Chomsky', section: 'utils' }, ɵ42 = { title: 'Field Interactions', section: 'utils' }, ɵ43 = { title: 'Modal', section: 'utils' }, ɵ44 = { title: 'Pipes', section: 'utils' }, ɵ45 = { title: 'Pop Over', section: 'utils' }, ɵ46 = { title: 'Security', section: 'utils' }, ɵ47 = { title: 'Tip Well', section: 'utils' }, ɵ48 = { title: 'Toaster', section: 'utils' }, ɵ49 = { title: 'Tooltip', section: 'utils' }, ɵ50 = {};
 /** @type {?} */
 var routes = [
     //{ path: '', component: Home, data: {} },
@@ -74240,13 +74490,13 @@ var routes = [
     { path: 'components', component: ComponentsPage, data: ɵ3 },
     { path: 'components/data-table', component: DataTablePage, data: ɵ4 },
     { path: 'components/dropdown', component: DropdownPage, data: ɵ5 },
-    { path: 'components/group-member-picker', component: GroupMemberPickerPage, data: ɵ6 },
-    { path: 'components/icon', component: IconPage, data: ɵ7 },
-    { path: 'components/loading', component: LoadingPage, data: ɵ8 },
-    { path: 'components/quick-note', component: QuickNotePage, data: ɵ9 },
-    { path: 'components/search', component: SearchPage, data: ɵ10 },
-    { path: 'components/slides', component: SlidesPage, data: ɵ11 },
-    { path: 'components/switch', component: SwitchPage, data: ɵ12 },
+    { path: 'components/icon', component: IconPage, data: ɵ6 },
+    { path: 'components/loading', component: LoadingPage, data: ɵ7 },
+    { path: 'components/quick-note', component: QuickNotePage, data: ɵ8 },
+    { path: 'components/search', component: SearchPage, data: ɵ9 },
+    { path: 'components/slides', component: SlidesPage, data: ɵ10 },
+    { path: 'components/switch', component: SwitchPage, data: ɵ11 },
+    { path: 'components/tabbed-group-picker', component: TabbedGroupPickerPage, data: ɵ12 },
     { path: 'components/table', component: TablePage, data: ɵ13 },
     { path: 'design/colors', component: ColorsPage, data: ɵ14 },
     { path: 'design/composition', component: CompositionPage, data: ɵ15 },
@@ -74289,7 +74539,7 @@ var routes = [
 ];
 /** @type {?} */
 var PAGE_LIST = [
-    AceEditorPage, ButtonsPage, CalendarPage, ComponentsPage, DataTablePage, DropdownPage, GroupMemberPickerPage, IconPage, LoadingPage, QuickNotePage, SearchPage, SlidesPage, SwitchPage, TablePage, ColorsPage, CompositionPage, DesignPage, IconographyPage, TypographyPage, ChipsPage, DatePickerPage, EditorPage, FormControlsPage, FormGroupsPage, FormPage, MultiPickerPage, PickerPage, RadioButtonsPage, SelectPage, TilesPage, ValuePage, HomePage, CardsPage, ExpansionPage, HeaderPage, LayoutsPage, ListPage, StepperPage, TabsPage, PatternsPage, TemplatesPage, ChomskyPage, FieldInteractionsPage, ModalPage, PipesPage, PopOverPage, SecurityPage, TipWellPage, ToasterPage, TooltipPage
+    AceEditorPage, ButtonsPage, CalendarPage, ComponentsPage, DataTablePage, DropdownPage, IconPage, LoadingPage, QuickNotePage, SearchPage, SlidesPage, SwitchPage, TabbedGroupPickerPage, TablePage, ColorsPage, CompositionPage, DesignPage, IconographyPage, TypographyPage, ChipsPage, DatePickerPage, EditorPage, FormControlsPage, FormGroupsPage, FormPage, MultiPickerPage, PickerPage, RadioButtonsPage, SelectPage, TilesPage, ValuePage, HomePage, CardsPage, ExpansionPage, HeaderPage, LayoutsPage, ListPage, StepperPage, TabsPage, PatternsPage, TemplatesPage, ChomskyPage, FieldInteractionsPage, ModalPage, PipesPage, PopOverPage, SecurityPage, TipWellPage, ToasterPage, TooltipPage
 ];
 var NovoExamplesRoutesModule = /** @class */ (function () {
     function NovoExamplesRoutesModule() {
