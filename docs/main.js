@@ -52304,7 +52304,9 @@ var NovoTabbedGroupPickerElement = /** @class */ (function () {
                     else if (!Array.isArray(quickSelect.values)) {
                         warning += "Invalid values for " + quickSelectIdentifier + " config:  'values' property contains no values.\n";
                     }
-                    else if (!quickSelect.values.every(function (quickSelectValue) { return _this.data[foundSchema.typeName].some(function (dataItem) { return dataItem[foundSchema.valueField] === quickSelectValue; }); })) {
+                    else if (!quickSelect.values.every(function (quickSelectValue) {
+                        return _this.data[foundSchema.typeName].some(function (dataItem) { return dataItem[foundSchema.valueField] === quickSelectValue; });
+                    })) {
                         warning += "Invalid value for " + quickSelectIdentifier + " config: at least one value in values is not present in any item in data." + foundSchema.typeName + "\n";
                     }
                 }
@@ -52417,9 +52419,7 @@ var NovoTabbedGroupPickerElement = /** @class */ (function () {
         /** @type {?} */
         var currentSelection = {};
         this.typeSchema.forEach(function (type) {
-            currentSelection[type.typeName] = _this.data[type.typeName]
-                .filter(function (item) { return item.selected; })
-                .map(function (item) { return item[type.valueField]; });
+            currentSelection[type.typeName] = _this.data[type.typeName].filter(function (item) { return item.selected; }).map(function (item) { return item[type.valueField]; });
         });
         this.selectionChange.emit(currentSelection);
     };
@@ -60492,7 +60492,8 @@ var TabbedGroupPickerBasicExample = /** @class */ (function () {
                 typeLabel: 'Animals',
                 valueField: 'animalId',
                 labelField: 'name',
-            }, {
+            },
+            {
                 typeName: 'places',
                 typeLabel: 'Places',
                 valueField: 'localName',
@@ -60503,53 +60504,67 @@ var TabbedGroupPickerBasicExample = /** @class */ (function () {
             animals: [
                 {
                     animalId: 1,
-                    name: 'Dog'
-                }, {
+                    name: 'Dog',
+                },
+                {
                     animalId: 2,
-                    name: 'Cat'
-                }, {
+                    name: 'Cat',
+                },
+                {
                     animalId: 3,
-                    name: 'Mouse'
-                }, {
+                    name: 'Mouse',
+                },
+                {
                     animalId: 4,
-                    name: 'Horse'
-                }, {
+                    name: 'Horse',
+                },
+                {
                     animalId: 5,
-                    name: 'Cow'
-                }, {
+                    name: 'Cow',
+                },
+                {
                     animalId: 6,
-                    name: 'Pig'
-                }, {
+                    name: 'Pig',
+                },
+                {
                     animalId: 7,
-                    name: 'Chicken'
-                }, {
+                    name: 'Chicken',
+                },
+                {
                     animalId: 8,
-                    name: 'Sheep'
-                }, {
+                    name: 'Sheep',
+                },
+                {
                     animalId: 9,
-                    name: 'Goat'
-                }, {
+                    name: 'Goat',
+                },
+                {
                     animalId: 10,
-                    name: 'Goose'
+                    name: 'Goose',
                 },
             ],
             places: [
                 {
                     localName: 'Roma',
                     englishName: 'Rome',
-                }, {
+                },
+                {
                     localName: 'Firenze',
                     englishName: 'Florence',
-                }, {
+                },
+                {
                     localName: 'Munchen',
                     englishName: 'Munich',
-                }, {
+                },
+                {
                     localName: 'Paris',
                     englishName: 'Paris',
-                }, {
+                },
+                {
                     localName: 'Sevilla',
                     englishName: 'Seville',
-                }, {
+                },
+                {
                     localName: 'Athinai',
                     englishName: 'Athens',
                 },
@@ -60600,7 +60615,7 @@ var TabbedGroupPickerQuickSelectExample = /** @class */ (function () {
                 typeLabel: 'Animals',
                 valueField: 'animalId',
                 labelField: 'name',
-            }
+            },
         ];
         this.example_quickSelectConfig = {
             label: 'Quick Select',
@@ -60608,57 +60623,66 @@ var TabbedGroupPickerQuickSelectExample = /** @class */ (function () {
                 {
                     typeName: 'animals',
                     values: [1],
-                    label: 'Best Animal'
+                    label: 'Best Animal',
                 },
                 {
                     typeName: 'animals',
                     values: [2],
-                    label: 'Pure Evil'
+                    label: 'Pure Evil',
                 },
                 {
                     typeName: 'animals',
                     values: [7, 10],
-                    label: 'Birds'
+                    label: 'Birds',
                 },
                 {
                     typeName: 'animals',
                     all: true,
-                    label: 'All Animals'
+                    label: 'All Animals',
                 },
-            ]
+            ],
         };
         this.example_data = {
             animals: [
                 {
                     animalId: 1,
-                    name: 'Dog'
-                }, {
+                    name: 'Dog',
+                },
+                {
                     animalId: 2,
-                    name: 'Cat'
-                }, {
+                    name: 'Cat',
+                },
+                {
                     animalId: 3,
-                    name: 'Mouse'
-                }, {
+                    name: 'Mouse',
+                },
+                {
                     animalId: 4,
-                    name: 'Horse'
-                }, {
+                    name: 'Horse',
+                },
+                {
                     animalId: 5,
-                    name: 'Cow'
-                }, {
+                    name: 'Cow',
+                },
+                {
                     animalId: 6,
-                    name: 'Pig'
-                }, {
+                    name: 'Pig',
+                },
+                {
                     animalId: 7,
-                    name: 'Chicken'
-                }, {
+                    name: 'Chicken',
+                },
+                {
                     animalId: 8,
-                    name: 'Sheep'
-                }, {
+                    name: 'Sheep',
+                },
+                {
                     animalId: 9,
-                    name: 'Goat'
-                }, {
+                    name: 'Goat',
+                },
+                {
                     animalId: 10,
-                    name: 'Goose'
+                    name: 'Goose',
                 },
             ],
         };
@@ -72025,14 +72049,14 @@ var EXAMPLE_COMPONENTS = {
     'tabbed-group-picker-basic': {
         title: 'Tabbed Group Picker - Basic Example',
         component: TabbedGroupPickerBasicExample,
-        tsSource: "import%20%7BComponent%7D%20from%20'%40angular%2Fcore'%3B%0A%0A%2F**%0A%20*%20%40title%20Tabbed%20Group%20Picker%20-%20Basic%20Example%0A%20*%2F%0A%40Component(%7B%0A%20%20selector%3A%20'tabbed-group-picker-basic-example'%2C%0A%20%20templateUrl%3A%20'tabbed-group-picker-basic-example.html'%2C%0A%7D)%0Aexport%20class%20TabbedGroupPickerBasicExample%20%7B%0A%20%20public%20example_schema%20%3D%20%5B%0A%20%20%20%20%7B%0A%20%20%20%20%20%20typeName%3A%20'animals'%2C%0A%20%20%20%20%20%20typeLabel%3A%20'Animals'%2C%0A%20%20%20%20%20%20valueField%3A%20'animalId'%2C%0A%20%20%20%20%20%20labelField%3A%20'name'%2C%0A%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20typeName%3A%20'places'%2C%0A%20%20%20%20%20%20typeLabel%3A%20'Places'%2C%0A%20%20%20%20%20%20valueField%3A%20'localName'%2C%0A%20%20%20%20%20%20labelField%3A%20'englishName'%2C%0A%20%20%20%20%7D%2C%0A%20%20%5D%3B%0A%20%20public%20example_data%3A%20any%20%3D%20%7B%0A%20%20%20%20animals%3A%20%5B%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%201%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Dog'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%202%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Cat'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%203%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Mouse'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%204%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Horse'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%205%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Cow'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%206%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Pig'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%207%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Chicken'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%208%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Sheep'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%209%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Goat'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%2010%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Goose'%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%5D%2C%0A%20%20%20%20places%3A%20%5B%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20localName%3A%20'Roma'%2C%0A%20%20%20%20%20%20%20%20englishName%3A%20'Rome'%2C%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20localName%3A%20'Firenze'%2C%0A%20%20%20%20%20%20%20%20englishName%3A%20'Florence'%2C%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20localName%3A%20'Munchen'%2C%0A%20%20%20%20%20%20%20%20englishName%3A%20'Munich'%2C%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20localName%3A%20'Paris'%2C%0A%20%20%20%20%20%20%20%20englishName%3A%20'Paris'%2C%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20localName%3A%20'Sevilla'%2C%0A%20%20%20%20%20%20%20%20englishName%3A%20'Seville'%2C%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20localName%3A%20'Athinai'%2C%0A%20%20%20%20%20%20%20%20englishName%3A%20'Athens'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%5D%2C%0A%20%20%7D%3B%0A%0A%20%20public%20example_buttonConfig%20%3D%20%7B%0A%20%20%20%20theme%3A%20'dialog'%2C%0A%20%20%20%20side%3A%20'left'%2C%0A%20%20%20%20icon%3A%20'user-o'%2C%0A%20%20%20%20label%3A%20'Click%20Me'%2C%0A%20%20%7D%3B%0A%0A%20%20public%20selectedAnimals%3A%20any%5B%5D%20%3D%20%5B%5D%3B%0A%20%20public%20selectedPlaces%3A%20any%5B%5D%20%3D%20%5B%5D%3B%0A%0A%20%20onSelectionChange(selectedData)%20%7B%0A%20%20%20%20this.selectedAnimals%20%3D%20selectedData%5B'animals'%5D%3B%0A%20%20%20%20this.selectedPlaces%20%3D%20selectedData%5B'places'%5D%3B%0A%20%20%7D%0A%7D%0A",
+        tsSource: "import%20%7B%20Component%20%7D%20from%20'%40angular%2Fcore'%3B%0A%0A%2F**%0A%20*%20%40title%20Tabbed%20Group%20Picker%20-%20Basic%20Example%0A%20*%2F%0A%40Component(%7B%0A%20%20selector%3A%20'tabbed-group-picker-basic-example'%2C%0A%20%20templateUrl%3A%20'tabbed-group-picker-basic-example.html'%2C%0A%7D)%0Aexport%20class%20TabbedGroupPickerBasicExample%20%7B%0A%20%20public%20example_schema%20%3D%20%5B%0A%20%20%20%20%7B%0A%20%20%20%20%20%20typeName%3A%20'animals'%2C%0A%20%20%20%20%20%20typeLabel%3A%20'Animals'%2C%0A%20%20%20%20%20%20valueField%3A%20'animalId'%2C%0A%20%20%20%20%20%20labelField%3A%20'name'%2C%0A%20%20%20%20%7D%2C%0A%20%20%20%20%7B%0A%20%20%20%20%20%20typeName%3A%20'places'%2C%0A%20%20%20%20%20%20typeLabel%3A%20'Places'%2C%0A%20%20%20%20%20%20valueField%3A%20'localName'%2C%0A%20%20%20%20%20%20labelField%3A%20'englishName'%2C%0A%20%20%20%20%7D%2C%0A%20%20%5D%3B%0A%20%20public%20example_data%3A%20any%20%3D%20%7B%0A%20%20%20%20animals%3A%20%5B%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%201%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Dog'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%202%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Cat'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%203%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Mouse'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%204%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Horse'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%205%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Cow'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%206%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Pig'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%207%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Chicken'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%208%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Sheep'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%209%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Goat'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%2010%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Goose'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%5D%2C%0A%20%20%20%20places%3A%20%5B%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20localName%3A%20'Roma'%2C%0A%20%20%20%20%20%20%20%20englishName%3A%20'Rome'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20localName%3A%20'Firenze'%2C%0A%20%20%20%20%20%20%20%20englishName%3A%20'Florence'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20localName%3A%20'Munchen'%2C%0A%20%20%20%20%20%20%20%20englishName%3A%20'Munich'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20localName%3A%20'Paris'%2C%0A%20%20%20%20%20%20%20%20englishName%3A%20'Paris'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20localName%3A%20'Sevilla'%2C%0A%20%20%20%20%20%20%20%20englishName%3A%20'Seville'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20localName%3A%20'Athinai'%2C%0A%20%20%20%20%20%20%20%20englishName%3A%20'Athens'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%5D%2C%0A%20%20%7D%3B%0A%0A%20%20public%20example_buttonConfig%20%3D%20%7B%0A%20%20%20%20theme%3A%20'dialog'%2C%0A%20%20%20%20side%3A%20'left'%2C%0A%20%20%20%20icon%3A%20'user-o'%2C%0A%20%20%20%20label%3A%20'Click%20Me'%2C%0A%20%20%7D%3B%0A%0A%20%20public%20selectedAnimals%3A%20any%5B%5D%20%3D%20%5B%5D%3B%0A%20%20public%20selectedPlaces%3A%20any%5B%5D%20%3D%20%5B%5D%3B%0A%0A%20%20onSelectionChange(selectedData)%20%7B%0A%20%20%20%20this.selectedAnimals%20%3D%20selectedData%5B'animals'%5D%3B%0A%20%20%20%20this.selectedPlaces%20%3D%20selectedData%5B'places'%5D%3B%0A%20%20%7D%0A%7D%0A",
         cssSource: "",
         htmlSource: "%3Cdiv%3ESelected%20Animal%20IDs%3A%20%7B%7B%20selectedAnimals.join('%2C%20')%20%7D%7D%3C%2Fdiv%3E%0A%3Cdiv%3ESelected%20Local%20Place%20Names%3A%20%7B%7B%20selectedPlaces.join('%2C%20')%20%7D%7D%3C%2Fdiv%3E%0A%3Cnovo-tabbed-group-picker%20%5BtypeSchema%5D%3D%22example_schema%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5BbuttonConfig%5D%3D%22example_buttonConfig%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5Bdata%5D%3D%22example_data%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20(selectionChange)%3D%22onSelectionChange(%24event)%22%3E%3C%2Fnovo-tabbed-group-picker%3E%0A"
     },
     'tabbed-group-picker-quick-select': {
         title: 'Tabbed Group Picker - Quick Select Example',
         component: TabbedGroupPickerQuickSelectExample,
-        tsSource: "import%20%7BComponent%7D%20from%20'%40angular%2Fcore'%3B%0A%0A%2F**%0A%20*%20%40title%20Tabbed%20Group%20Picker%20-%20Quick%20Select%20Example%0A%20*%2F%0A%40Component(%7B%0A%20%20selector%3A%20'tabbed-group-picker-quick-select-example'%2C%0A%20%20templateUrl%3A%20'tabbed-group-picker-quick-select-example.html'%2C%0A%7D)%0Aexport%20class%20TabbedGroupPickerQuickSelectExample%20%7B%0A%20%20public%20example_schema%20%3D%20%5B%0A%20%20%20%20%7B%0A%20%20%20%20%20%20typeName%3A%20'animals'%2C%0A%20%20%20%20%20%20typeLabel%3A%20'Animals'%2C%0A%20%20%20%20%20%20valueField%3A%20'animalId'%2C%0A%20%20%20%20%20%20labelField%3A%20'name'%2C%0A%20%20%20%20%7D%0A%20%20%5D%3B%0A%20%20public%20example_quickSelectConfig%20%3D%20%7B%0A%20%20%20%20label%3A%20'Quick%20Select'%2C%0A%20%20%20%20items%3A%20%5B%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20typeName%3A%20'animals'%2C%0A%20%20%20%20%20%20%20%20values%3A%20%5B1%5D%2C%0A%20%20%20%20%20%20%20%20label%3A%20'Best%20Animal'%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20typeName%3A%20'animals'%2C%0A%20%20%20%20%20%20%20%20values%3A%20%5B2%5D%2C%0A%20%20%20%20%20%20%20%20label%3A%20'Pure%20Evil'%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20typeName%3A%20'animals'%2C%0A%20%20%20%20%20%20%20%20values%3A%20%5B7%2C%2010%5D%2C%0A%20%20%20%20%20%20%20%20label%3A%20'Birds'%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20typeName%3A%20'animals'%2C%0A%20%20%20%20%20%20%20%20all%3A%20true%2C%0A%20%20%20%20%20%20%20%20label%3A%20'All%20Animals'%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%5D%0A%20%20%7D%3B%0A%20%20public%20example_data%3A%20any%20%3D%20%7B%0A%20%20%20%20animals%3A%20%5B%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%201%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Dog'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%202%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Cat'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%203%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Mouse'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%204%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Horse'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%205%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Cow'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%206%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Pig'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%207%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Chicken'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%208%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Sheep'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%209%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Goat'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%2010%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Goose'%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%5D%2C%0A%20%20%7D%3B%0A%0A%20%20public%20example_buttonConfig%20%3D%20%7B%0A%20%20%20%20theme%3A%20'dialog'%2C%0A%20%20%20%20side%3A%20'left'%2C%0A%20%20%20%20icon%3A%20'user-o'%2C%0A%20%20%20%20label%3A%20'Click%20Me'%2C%0A%20%20%7D%3B%0A%0A%20%20public%20selectedAnimals%3A%20any%5B%5D%20%3D%20%5B%5D%3B%0A%0A%20%20onSelectionChange(selectedData)%20%7B%0A%20%20%20%20this.selectedAnimals%20%3D%20selectedData%5B'animals'%5D%3B%0A%20%20%7D%0A%7D%0A",
+        tsSource: "import%20%7B%20Component%20%7D%20from%20'%40angular%2Fcore'%3B%0A%0A%2F**%0A%20*%20%40title%20Tabbed%20Group%20Picker%20-%20Quick%20Select%20Example%0A%20*%2F%0A%40Component(%7B%0A%20%20selector%3A%20'tabbed-group-picker-quick-select-example'%2C%0A%20%20templateUrl%3A%20'tabbed-group-picker-quick-select-example.html'%2C%0A%7D)%0Aexport%20class%20TabbedGroupPickerQuickSelectExample%20%7B%0A%20%20public%20example_schema%20%3D%20%5B%0A%20%20%20%20%7B%0A%20%20%20%20%20%20typeName%3A%20'animals'%2C%0A%20%20%20%20%20%20typeLabel%3A%20'Animals'%2C%0A%20%20%20%20%20%20valueField%3A%20'animalId'%2C%0A%20%20%20%20%20%20labelField%3A%20'name'%2C%0A%20%20%20%20%7D%2C%0A%20%20%5D%3B%0A%20%20public%20example_quickSelectConfig%20%3D%20%7B%0A%20%20%20%20label%3A%20'Quick%20Select'%2C%0A%20%20%20%20items%3A%20%5B%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20typeName%3A%20'animals'%2C%0A%20%20%20%20%20%20%20%20values%3A%20%5B1%5D%2C%0A%20%20%20%20%20%20%20%20label%3A%20'Best%20Animal'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20typeName%3A%20'animals'%2C%0A%20%20%20%20%20%20%20%20values%3A%20%5B2%5D%2C%0A%20%20%20%20%20%20%20%20label%3A%20'Pure%20Evil'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20typeName%3A%20'animals'%2C%0A%20%20%20%20%20%20%20%20values%3A%20%5B7%2C%2010%5D%2C%0A%20%20%20%20%20%20%20%20label%3A%20'Birds'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20typeName%3A%20'animals'%2C%0A%20%20%20%20%20%20%20%20all%3A%20true%2C%0A%20%20%20%20%20%20%20%20label%3A%20'All%20Animals'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%5D%2C%0A%20%20%7D%3B%0A%20%20public%20example_data%3A%20any%20%3D%20%7B%0A%20%20%20%20animals%3A%20%5B%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%201%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Dog'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%202%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Cat'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%203%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Mouse'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%204%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Horse'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%205%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Cow'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%206%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Pig'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%207%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Chicken'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%208%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Sheep'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%209%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Goat'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%2010%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Goose'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%5D%2C%0A%20%20%7D%3B%0A%0A%20%20public%20example_buttonConfig%20%3D%20%7B%0A%20%20%20%20theme%3A%20'dialog'%2C%0A%20%20%20%20side%3A%20'left'%2C%0A%20%20%20%20icon%3A%20'user-o'%2C%0A%20%20%20%20label%3A%20'Click%20Me'%2C%0A%20%20%7D%3B%0A%0A%20%20public%20selectedAnimals%3A%20any%5B%5D%20%3D%20%5B%5D%3B%0A%0A%20%20onSelectionChange(selectedData)%20%7B%0A%20%20%20%20this.selectedAnimals%20%3D%20selectedData%5B'animals'%5D%3B%0A%20%20%7D%0A%7D%0A",
         cssSource: "",
         htmlSource: "%3Cdiv%3ESelected%20Animal%20IDs%3A%20%7B%7B%20selectedAnimals.join('%2C%20')%20%7D%7D%3C%2Fdiv%3E%0A%3Cnovo-tabbed-group-picker%20%5BtypeSchema%5D%3D%22example_schema%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5BquickSelectConfig%5D%3D%22example_quickSelectConfig%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5BbuttonConfig%5D%3D%22example_buttonConfig%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5Bdata%5D%3D%22example_data%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20(selectionChange)%3D%22onSelectionChange(%24event)%22%3E%3C%2Fnovo-tabbed-group-picker%3E%0A"
     },
@@ -74082,7 +74106,7 @@ var TabbedGroupPickerPage = /** @class */ (function () {
     TabbedGroupPickerPage.decorators = [
         { type: _angular_core__WEBPACK_IMPORTED_MODULE_11__["Component"], args: [{
                     selector: 'tabbed-group-picker-page',
-                    template: "<h1>Tabbed Group Picker <a href=\"https://github.com/bullhorn/novo-elements/blob/master/projects/novo-elements/src/elements/tabbed-group-picker\">(source)</a></h1><p>Tabbed Group Picker allows for nested selection of groups and members via a tabbed interface.</p><p><code-example example=\"tabbed-group-picker-basic\"></code-example></p><p><code-example example=\"tabbed-group-picker-quick-select\"></code-example></p>"
+                    template: "<h1>Tabbed Group Picker <a href=\"https://github.com/bullhorn/novo-elements/blob/master/projects/novo-elements/src/elements/tabbed-group-picker\">(source)</a></h1><p>Tabbed Group Picker allows for nested selection of groups and members via a tabbed interface.</p><h2>Basic</h2><p>In its most basic usage, Tabbed Group Picker allows for selection of arbitrary sets of data that have no group/member relationship. Each data set appears on its own tab. The vales returned must be javascript primitives (typically string or number).</p><p><code-example example=\"tabbed-group-picker-basic\"></code-example></p><h2>Quick Select</h2><p>Tabbed Group Picker provides a configurable quick select interface. For each quick select item, the developer provides the data type, values (or the 'all' flag), and a label. Tabbed Group Picker builds the quick select menu and synchronizes the quick select checkboxes with the data checkboxes (in both directions).</p><p><code-example example=\"tabbed-group-picker-quick-select\"></code-example></p>"
                 }] }
     ];
     return TabbedGroupPickerPage;
