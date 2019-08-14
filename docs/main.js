@@ -52264,41 +52264,52 @@ var NovoTabbedGroupPickerElement = /** @class */ (function () {
         var _this = this;
         /** @type {?} */
         var warning = '';
-        this.quickSelectConfig.forEach(function (quickSelect) {
-            /** @type {?} */
-            var quickSelectIdentifier = '(Invalid quickSelect)';
-            if (!quickSelect.typeName) {
-                warning += "Invalid typeName: required field 'typeName' is not defined.\n";
-            }
-            else if (!quickSelect.label) {
-                warning += "Invalid label: required field 'label' is not defined.\n";
-            }
-            else {
-                quickSelectIdentifier = quickSelect.label + " (" + quickSelect.typeName + ")";
-            }
-            /** @type {?} */
-            var foundSchema = _this.typeSchema.find(function (schema) { return quickSelect.typeName === schema.typeName; });
-            if (!foundSchema) {
-                warning += "Invalid typeName for " + quickSelectIdentifier + " config: " + quickSelect.typeName + " is not present in any configured typeSchema.\n";
-            }
-            if ('values' in quickSelect && 'all' in quickSelect) {
-                warning += "Invalid properties for " + quickSelectIdentifier + " config: only one of 'values' and 'all' is allowed.\n";
-            }
-            else if (!('values' in quickSelect) && !('all' in quickSelect)) {
-                warning += "Invalid properties for " + quickSelectIdentifier + " config: either 'values' or 'all' is required.\n";
-            }
-            if ('values' in quickSelect) {
-                if (!Array.isArray(quickSelect.values)) {
-                    warning += "Invalid values for " + quickSelectIdentifier + " config:  'values' property is not an array.\n";
+        if (!('items' in this.quickSelectConfig)) {
+            warning += "Invalid quick select: required field 'items' is not defined.\n";
+        }
+        else if (!Array.isArray(this.quickSelectConfig.items)) {
+            warning += "Invalid quick select: 'items' is not an array.\n";
+        }
+        else if (!this.quickSelectConfig.items.length) {
+            warning += "Invalid quick select: 'items' is empty.\n";
+        }
+        else {
+            this.quickSelectConfig.items.forEach(function (quickSelect) {
+                /** @type {?} */
+                var quickSelectIdentifier = '(Invalid quickSelect)';
+                if (!quickSelect.typeName) {
+                    warning += "Invalid typeName: required field 'typeName' is not defined.\n";
                 }
-                else if (!Array.isArray(quickSelect.values)) {
-                    warning += "Invalid values for " + quickSelectIdentifier + " config:  'values' property contains no values.\n";
+                else if (!quickSelect.label) {
+                    warning += "Invalid label: required field 'label' is not defined.\n";
                 }
-                else if (!quickSelect.values.every(function (quickSelectValue) { return _this.data[foundSchema.typeName].some(function (dataItem) { return dataItem[foundSchema.valueField] === quickSelectValue; }); })) {
-                    warning += "Invalid value for " + quickSelectIdentifier + " config: at least one value in values is not present in any item in data." + foundSchema.typeName + "\n";
+                else {
+                    quickSelectIdentifier = quickSelect.label + " (" + quickSelect.typeName + ")";
                 }
-            }
-        });
+                /** @type {?} */
+                var foundSchema = _this.typeSchema.find(function (schema) { return quickSelect.typeName === schema.typeName; });
+                if (!foundSchema) {
+                    warning += "Invalid typeName for " + quickSelectIdentifier + " config: " + quickSelect.typeName + " is not present in any configured typeSchema.\n";
+                }
+                if ('values' in quickSelect && 'all' in quickSelect) {
+                    warning += "Invalid properties for " + quickSelectIdentifier + " config: only one of 'values' and 'all' is allowed.\n";
+                }
+                else if (!('values' in quickSelect) && !('all' in quickSelect)) {
+                    warning += "Invalid properties for " + quickSelectIdentifier + " config: either 'values' or 'all' is required.\n";
+                }
+                if ('values' in quickSelect) {
+                    if (!Array.isArray(quickSelect.values)) {
+                        warning += "Invalid values for " + quickSelectIdentifier + " config:  'values' property is not an array.\n";
+                    }
+                    else if (!Array.isArray(quickSelect.values)) {
+                        warning += "Invalid values for " + quickSelectIdentifier + " config:  'values' property contains no values.\n";
+                    }
+                    else if (!quickSelect.values.every(function (quickSelectValue) { return _this.data[foundSchema.typeName].some(function (dataItem) { return dataItem[foundSchema.valueField] === quickSelectValue; }); })) {
+                        warning += "Invalid value for " + quickSelectIdentifier + " config: at least one value in values is not present in any item in data." + foundSchema.typeName + "\n";
+                    }
+                }
+            });
+        }
         if (warning) {
             console.warn("TabbedGroupPicker quickSelect validation warning:\n" + warning);
         }
@@ -52382,7 +52393,7 @@ var NovoTabbedGroupPickerElement = /** @class */ (function () {
     function (activeType) {
         var _this = this;
         /** @type {?} */
-        var relevantQuickSelects = this.quickSelectConfig.filter(function (quickSelect) { return activeType.typeName === quickSelect.typeName; });
+        var relevantQuickSelects = this.quickSelectConfig.items.filter(function (quickSelect) { return activeType.typeName === quickSelect.typeName; });
         relevantQuickSelects.forEach(function (quickSelect) {
             /** @type {?} */
             var itemsToCheck = [];
@@ -52415,7 +52426,7 @@ var NovoTabbedGroupPickerElement = /** @class */ (function () {
     NovoTabbedGroupPickerElement.decorators = [
         { type: _angular_core__WEBPACK_IMPORTED_MODULE_26__["Component"], args: [{
                     selector: 'novo-tabbed-group-picker',
-                    template: "<novo-dropdown>\n  <button theme=\"buttonConfig.theme\"\n          side=\"buttonConfig.side\"\n          icon=\"buttonConfig.icon\"\n          [loading]=\"loading\">\n    <span class=\"dropdown-button-label\">{{ buttonConfig.label }}</span>\n    <i class=\"bhi-sort-desc\"></i>\n  </button>\n  <!-- todo: search input goes here-->\n  <div class=\"tabbed-group-picker-column-container\">\n    <div class=\"tabbed-group-picker-column left\">\n      <novo-nav theme=\"white\"\n                direction=\"vertical\">\n        <novo-tab *ngFor=\"let schema of typeSchema\"\n                  [attr.data-automation-id]=\"schema.typeName\"\n                  (activeChange)=\"setActiveType(schema)\">\n          <span>{{ schema.typeLabel }}</span><i class=\"bhi-next\"></i>\n        </novo-tab>\n      </novo-nav>\n      <!-- todo: clear all button goes here-->\n    </div>\n    <div class=\"tabbed-group-picker-column right\">\n      <div class=\"quick-select\" *ngIf=\"quickSelectConfig\">\n        <div class=\"quick-select-label\">**Quick Select**</div>\n        <novo-list direction=\"vertical\">\n          <novo-list-item *ngFor=\"let quickSelect of quickSelectConfig\"\n                          [attr.data-automation-id]=\"quickSelect.label\"\n                          (click)=\"onQuickSelectListItemClicked(quickSelect)\">\n            <item-content>\n              <novo-checkbox [label]=\"quickSelect.label\"\n                             [name]=\"'active'\"\n                             [(ngModel)]=\"quickSelect.active\"\n                             (ngModelChange)=\"onQuickSelectToggled(quickSelect)\"></novo-checkbox>\n            </item-content>\n          </novo-list-item>\n        </novo-list>\n      </div>\n      <!-- todo: add virtual scroll-->\n      <novo-list *ngIf=\"data[activeType.typeName].length\"\n                 direction=\"vertical\">\n        <novo-list-item *ngFor=\"let item of data[activeType.typeName]\"\n                        [attr.data-automation-id]=\"item[activeType.labelField]\"\n                        (click)=\"onDataListItemClicked(activeType, item);\">\n          <item-content>\n            <novo-checkbox [label]=\"item[activeType.labelField]\"\n                           [name]=\"'selected'\"\n                           [(ngModel)]=\"item.selected\"\n                           (ngModelChange)=\"onItemToggled(activeType)\"></novo-checkbox>\n          </item-content>\n        </novo-list-item>\n      </novo-list>\n      <!-- todo: empty state goes here-->\n    </div>\n  </div>\n</novo-dropdown>\n"
+                    template: "<novo-dropdown>\n  <button theme=\"buttonConfig.theme\"\n          side=\"buttonConfig.side\"\n          icon=\"buttonConfig.icon\"\n          [loading]=\"loading\">\n    <span class=\"dropdown-button-label\">{{ buttonConfig.label }}</span>\n    <i class=\"bhi-sort-desc\"></i>\n  </button>\n  <!-- todo: search input goes here-->\n  <div class=\"tabbed-group-picker-column-container\">\n    <div class=\"tabbed-group-picker-column left\">\n      <novo-nav theme=\"white\"\n                direction=\"vertical\">\n        <novo-tab *ngFor=\"let schema of typeSchema\"\n                  [attr.data-automation-id]=\"schema.typeName\"\n                  (activeChange)=\"setActiveType(schema)\">\n          <span>{{ schema.typeLabel }}</span><i class=\"bhi-next\"></i>\n        </novo-tab>\n      </novo-nav>\n      <!-- todo: clear all button goes here-->\n    </div>\n    <div class=\"tabbed-group-picker-column right\">\n      <div class=\"quick-select\" *ngIf=\"quickSelectConfig\">\n        <div class=\"quick-select-label\">{{ quickSelectConfig.label }}</div>\n        <novo-list direction=\"vertical\">\n          <novo-list-item *ngFor=\"let quickSelect of quickSelectConfig.items\"\n                          [attr.data-automation-id]=\"quickSelect.label\"\n                          (click)=\"onQuickSelectListItemClicked(quickSelect)\">\n            <item-content>\n              <novo-checkbox [label]=\"quickSelect.label\"\n                             [name]=\"'active'\"\n                             [(ngModel)]=\"quickSelect.active\"\n                             (ngModelChange)=\"onQuickSelectToggled(quickSelect)\"></novo-checkbox>\n            </item-content>\n          </novo-list-item>\n        </novo-list>\n      </div>\n      <!-- todo: add virtual scroll-->\n      <novo-list *ngIf=\"data[activeType.typeName].length\"\n                 direction=\"vertical\">\n        <novo-list-item *ngFor=\"let item of data[activeType.typeName]\"\n                        [attr.data-automation-id]=\"item[activeType.labelField]\"\n                        (click)=\"onDataListItemClicked(activeType, item);\">\n          <item-content>\n            <novo-checkbox [label]=\"item[activeType.labelField]\"\n                           [name]=\"'selected'\"\n                           [(ngModel)]=\"item.selected\"\n                           (ngModelChange)=\"onItemToggled(activeType)\"></novo-checkbox>\n          </item-content>\n        </novo-list-item>\n      </novo-list>\n      <!-- todo: empty state goes here-->\n    </div>\n  </div>\n</novo-dropdown>\n"
                 }] }
     ];
     /** @nocollapse */
@@ -60591,28 +60602,31 @@ var TabbedGroupPickerQuickSelectExample = /** @class */ (function () {
                 labelField: 'name',
             }
         ];
-        this.example_quickSelectConfig = [
-            {
-                typeName: 'animals',
-                values: [1],
-                label: 'Best Animal'
-            },
-            {
-                typeName: 'animals',
-                values: [2],
-                label: 'Pure Evil'
-            },
-            {
-                typeName: 'animals',
-                values: [7, 10],
-                label: 'Birds'
-            },
-            {
-                typeName: 'animals',
-                all: true,
-                label: 'All Animals'
-            },
-        ];
+        this.example_quickSelectConfig = {
+            label: 'Quick Select',
+            items: [
+                {
+                    typeName: 'animals',
+                    values: [1],
+                    label: 'Best Animal'
+                },
+                {
+                    typeName: 'animals',
+                    values: [2],
+                    label: 'Pure Evil'
+                },
+                {
+                    typeName: 'animals',
+                    values: [7, 10],
+                    label: 'Birds'
+                },
+                {
+                    typeName: 'animals',
+                    all: true,
+                    label: 'All Animals'
+                },
+            ]
+        };
         this.example_data = {
             animals: [
                 {
@@ -72018,7 +72032,7 @@ var EXAMPLE_COMPONENTS = {
     'tabbed-group-picker-quick-select': {
         title: 'Tabbed Group Picker - Quick Select Example',
         component: TabbedGroupPickerQuickSelectExample,
-        tsSource: "import%20%7BComponent%7D%20from%20'%40angular%2Fcore'%3B%0A%0A%2F**%0A%20*%20%40title%20Tabbed%20Group%20Picker%20-%20Quick%20Select%20Example%0A%20*%2F%0A%40Component(%7B%0A%20%20selector%3A%20'tabbed-group-picker-quick-select-example'%2C%0A%20%20templateUrl%3A%20'tabbed-group-picker-quick-select-example.html'%2C%0A%7D)%0Aexport%20class%20TabbedGroupPickerQuickSelectExample%20%7B%0A%20%20public%20example_schema%20%3D%20%5B%0A%20%20%20%20%7B%0A%20%20%20%20%20%20typeName%3A%20'animals'%2C%0A%20%20%20%20%20%20typeLabel%3A%20'Animals'%2C%0A%20%20%20%20%20%20valueField%3A%20'animalId'%2C%0A%20%20%20%20%20%20labelField%3A%20'name'%2C%0A%20%20%20%20%7D%0A%20%20%5D%3B%0A%20%20public%20example_quickSelectConfig%20%3D%20%5B%0A%20%20%20%20%7B%0A%20%20%20%20%20%20typeName%3A%20'animals'%2C%0A%20%20%20%20%20%20values%3A%20%5B1%5D%2C%0A%20%20%20%20%20%20label%3A%20'Best%20Animal'%0A%20%20%20%20%7D%2C%0A%20%20%20%20%7B%0A%20%20%20%20%20%20typeName%3A%20'animals'%2C%0A%20%20%20%20%20%20values%3A%20%5B2%5D%2C%0A%20%20%20%20%20%20label%3A%20'Pure%20Evil'%0A%20%20%20%20%7D%2C%0A%20%20%20%20%7B%0A%20%20%20%20%20%20typeName%3A%20'animals'%2C%0A%20%20%20%20%20%20values%3A%20%5B7%2C%2010%5D%2C%0A%20%20%20%20%20%20label%3A%20'Birds'%0A%20%20%20%20%7D%2C%0A%20%20%20%20%7B%0A%20%20%20%20%20%20typeName%3A%20'animals'%2C%0A%20%20%20%20%20%20all%3A%20true%2C%0A%20%20%20%20%20%20label%3A%20'All%20Animals'%0A%20%20%20%20%7D%2C%0A%20%20%5D%3B%0A%20%20public%20example_data%3A%20any%20%3D%20%7B%0A%20%20%20%20animals%3A%20%5B%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%201%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Dog'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%202%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Cat'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%203%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Mouse'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%204%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Horse'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%205%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Cow'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%206%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Pig'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%207%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Chicken'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%208%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Sheep'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%209%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Goat'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%2010%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Goose'%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%5D%2C%0A%20%20%7D%3B%0A%0A%20%20public%20example_buttonConfig%20%3D%20%7B%0A%20%20%20%20theme%3A%20'dialog'%2C%0A%20%20%20%20side%3A%20'left'%2C%0A%20%20%20%20icon%3A%20'user-o'%2C%0A%20%20%20%20label%3A%20'Click%20Me'%2C%0A%20%20%7D%3B%0A%0A%20%20public%20selectedAnimals%3A%20any%5B%5D%20%3D%20%5B%5D%3B%0A%0A%20%20onSelectionChange(selectedData)%20%7B%0A%20%20%20%20this.selectedAnimals%20%3D%20selectedData%5B'animals'%5D%3B%0A%20%20%7D%0A%7D%0A",
+        tsSource: "import%20%7BComponent%7D%20from%20'%40angular%2Fcore'%3B%0A%0A%2F**%0A%20*%20%40title%20Tabbed%20Group%20Picker%20-%20Quick%20Select%20Example%0A%20*%2F%0A%40Component(%7B%0A%20%20selector%3A%20'tabbed-group-picker-quick-select-example'%2C%0A%20%20templateUrl%3A%20'tabbed-group-picker-quick-select-example.html'%2C%0A%7D)%0Aexport%20class%20TabbedGroupPickerQuickSelectExample%20%7B%0A%20%20public%20example_schema%20%3D%20%5B%0A%20%20%20%20%7B%0A%20%20%20%20%20%20typeName%3A%20'animals'%2C%0A%20%20%20%20%20%20typeLabel%3A%20'Animals'%2C%0A%20%20%20%20%20%20valueField%3A%20'animalId'%2C%0A%20%20%20%20%20%20labelField%3A%20'name'%2C%0A%20%20%20%20%7D%0A%20%20%5D%3B%0A%20%20public%20example_quickSelectConfig%20%3D%20%7B%0A%20%20%20%20label%3A%20'Quick%20Select'%2C%0A%20%20%20%20items%3A%20%5B%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20typeName%3A%20'animals'%2C%0A%20%20%20%20%20%20%20%20values%3A%20%5B1%5D%2C%0A%20%20%20%20%20%20%20%20label%3A%20'Best%20Animal'%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20typeName%3A%20'animals'%2C%0A%20%20%20%20%20%20%20%20values%3A%20%5B2%5D%2C%0A%20%20%20%20%20%20%20%20label%3A%20'Pure%20Evil'%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20typeName%3A%20'animals'%2C%0A%20%20%20%20%20%20%20%20values%3A%20%5B7%2C%2010%5D%2C%0A%20%20%20%20%20%20%20%20label%3A%20'Birds'%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20typeName%3A%20'animals'%2C%0A%20%20%20%20%20%20%20%20all%3A%20true%2C%0A%20%20%20%20%20%20%20%20label%3A%20'All%20Animals'%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%5D%0A%20%20%7D%3B%0A%20%20public%20example_data%3A%20any%20%3D%20%7B%0A%20%20%20%20animals%3A%20%5B%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%201%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Dog'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%202%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Cat'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%203%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Mouse'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%204%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Horse'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%205%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Cow'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%206%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Pig'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%207%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Chicken'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%208%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Sheep'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%209%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Goat'%0A%20%20%20%20%20%20%7D%2C%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%2010%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Goose'%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%5D%2C%0A%20%20%7D%3B%0A%0A%20%20public%20example_buttonConfig%20%3D%20%7B%0A%20%20%20%20theme%3A%20'dialog'%2C%0A%20%20%20%20side%3A%20'left'%2C%0A%20%20%20%20icon%3A%20'user-o'%2C%0A%20%20%20%20label%3A%20'Click%20Me'%2C%0A%20%20%7D%3B%0A%0A%20%20public%20selectedAnimals%3A%20any%5B%5D%20%3D%20%5B%5D%3B%0A%0A%20%20onSelectionChange(selectedData)%20%7B%0A%20%20%20%20this.selectedAnimals%20%3D%20selectedData%5B'animals'%5D%3B%0A%20%20%7D%0A%7D%0A",
         cssSource: "",
         htmlSource: "%3Cdiv%3ESelected%20Animal%20IDs%3A%20%7B%7B%20selectedAnimals.join('%2C%20')%20%7D%7D%3C%2Fdiv%3E%0A%3Cnovo-tabbed-group-picker%20%5BtypeSchema%5D%3D%22example_schema%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5BquickSelectConfig%5D%3D%22example_quickSelectConfig%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5BbuttonConfig%5D%3D%22example_buttonConfig%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5Bdata%5D%3D%22example_data%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20(selectionChange)%3D%22onSelectionChange(%24event)%22%3E%3C%2Fnovo-tabbed-group-picker%3E%0A"
     },
