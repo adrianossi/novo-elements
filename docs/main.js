@@ -3751,6 +3751,7 @@ var NovoLabelService = /** @class */ (function () {
         this.pickerError = 'Oops! An error occurred.';
         this.pickerTextFieldEmpty = 'Begin typing to see results.';
         this.pickerEmpty = 'No results to display...';
+        this.tabbedGroupPickerEmpty = 'No results found';
         this.quickNoteError = 'Oops! An error occurred.';
         this.quickNoteEmpty = 'No results to display...';
         this.required = 'Required';
@@ -3930,6 +3931,17 @@ var NovoLabelService = /** @class */ (function () {
     function (total, select) {
         if (select === void 0) { select = false; }
         return select ? "Select all " + total + " records." : "De-select remaining " + total + " records.";
+    };
+    /**
+     * @param {?} tabLabelPlural
+     * @return {?}
+     */
+    NovoLabelService.prototype.tabbedGroupClearSuggestion = /**
+     * @param {?} tabLabelPlural
+     * @return {?}
+     */
+    function (tabLabelPlural) {
+        return "Clear your search to see all " + tabLabelPlural + ".";
     };
     /**
      * @param {?} value
@@ -18340,7 +18352,7 @@ var BaseControl = /** @class */ (function (_super) {
         _this.metaType = config.metaType;
         _this.placeholder = config.placeholder || '';
         _this.config = config.config || null;
-        _this.dirty = !!config.value;
+        _this.dirty = !!(config.value !== undefined && config.value !== null);
         _this.multiple = !!config.multiple;
         _this.headerConfig = config.headerConfig || null;
         _this.currencyFormat = config.currencyFormat || null;
@@ -20561,15 +20573,7 @@ var FieldInteractionApi = /** @class */ (function () {
             }
         };
         this.createOptionsFunction = function (config, mapper, filteredOptionsCreator) { return function (query$$1, page) {
-            if (filteredOptionsCreator) {
-                if ('where' in config) {
-                    return filteredOptionsCreator(config.where)(query$$1, page);
-                }
-                else {
-                    return filteredOptionsCreator()(query$$1, page);
-                }
-            }
-            else if ('optionsPromise' in config && config.optionsPromise) {
+            if ('optionsPromise' in config && config.optionsPromise) {
                 return config.optionsPromise(query$$1, new CustomHttpImpl(_this.http));
             }
             else if (('optionsUrlBuilder' in config && config.optionsUrlBuilder) || ('optionsUrl' in config && config.optionsUrl)) {
@@ -20586,6 +20590,14 @@ var FieldInteractionApi = /** @class */ (function () {
                     }))
                         .subscribe(resolve, reject);
                 });
+            }
+            else if (filteredOptionsCreator) {
+                if ('where' in config) {
+                    return filteredOptionsCreator(config.where)(query$$1, page);
+                }
+                else {
+                    return filteredOptionsCreator()(query$$1, page);
+                }
             }
         }; };
     }
@@ -50165,6 +50177,9 @@ var NovoDataTableCell = /** @class */ (function (_super) {
         if (this.column.cellClass) {
             this.renderer.addClass(this.elementRef.nativeElement, this.column.cellClass(this.row));
         }
+        if (this.column.rightAlignCellContent) {
+            this.renderer.addClass(this.elementRef.nativeElement, 'novo-data-table-cell-align-right');
+        }
         this.calculateWidths();
         this.subscriptions.push(this.resized.subscribe(function (column) {
             if (column === _this.column) {
@@ -52195,9 +52210,27 @@ RemoteDataTableService = /** @class */ (function () {
  * @suppress {checkTypes,extraRequire,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 var NovoTabbedGroupPickerElement = /** @class */ (function () {
-    function NovoTabbedGroupPickerElement() {
+    function NovoTabbedGroupPickerElement(labelService) {
+        var _this = this;
+        this.labelService = labelService;
         this.selectionChange = new _angular_core__WEBPACK_IMPORTED_MODULE_26__["EventEmitter"]();
+        this.filterText = new rxjs__WEBPACK_IMPORTED_MODULE_18__["BehaviorSubject"]('');
+        this.searchLabel = 'Search';
         this.loading = true;
+        this.getSelectedValues = function () {
+            return _this.schemata.reduce(function (prev, _a) {
+                var typeName = _a.typeName, valueField = _a.valueField;
+                var _b;
+                return Object(tslib__WEBPACK_IMPORTED_MODULE_25__["__assign"])({}, prev, (_b = {}, _b[typeName] = _this.data[typeName].filter(function (dataItem) { return dataItem.selected; }).map(function (dataItem) { return dataItem[valueField]; }), _b));
+            }, {});
+        };
+        this.filter = function (searchTerm) {
+            return (_this.displayData = _this.schemata.reduce(function (accumulator, _a) {
+                var labelField = _a.labelField, typeName = _a.typeName;
+                var _b;
+                return (Object(tslib__WEBPACK_IMPORTED_MODULE_25__["__assign"])({}, accumulator, (_b = {}, _b[typeName] = _this.data[typeName] && _this.data[typeName].filter(function (item) { return item[labelField].toLowerCase().includes(searchTerm.toLowerCase()); }), _b)));
+            }, {}));
+        };
     }
     /**
      * @return {?}
@@ -52207,11 +52240,15 @@ var NovoTabbedGroupPickerElement = /** @class */ (function () {
      */
     function () {
         this.validateData();
+        this.displayData = this.data;
         if (this.quickSelectConfig) {
             this.validateQuickSelectConfig();
         }
         this.setActiveSchema(this.schemata[0]);
         this.loading = false;
+        this.filterText.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_19__["debounceTime"])(300)).subscribe({
+            next: this.filter,
+        });
     };
     /**
      * @param {?} newActiveSchema
@@ -52415,24 +52452,41 @@ var NovoTabbedGroupPickerElement = /** @class */ (function () {
      * @return {?}
      */
     function () {
-        var _this = this;
-        /** @type {?} */
-        var currentSelection = {};
-        this.schemata.forEach(function (schema) {
-            currentSelection[schema.typeName] = _this.data[schema.typeName]
-                .filter(function (dataItem) { return dataItem.selected; })
-                .map(function (dataItem) { return dataItem[schema.valueField]; });
-        });
-        this.selectionChange.emit(currentSelection);
+        this.selectionChange.emit(this.getSelectedValues());
+    };
+    /**
+     * @param {?} event
+     * @return {?}
+     */
+    NovoTabbedGroupPickerElement.prototype.onClearFilter = /**
+     * @param {?} event
+     * @return {?}
+     */
+    function (event) {
+        Helpers.swallowEvent(event); // dunno if this is necessary
+        this.filterText.next('');
+    };
+    /**
+     * @param {?} event
+     * @return {?}
+     */
+    NovoTabbedGroupPickerElement.prototype.onFilter = /**
+     * @param {?} event
+     * @return {?}
+     */
+    function (event) {
+        this.filterText.next(event.target.value);
     };
     NovoTabbedGroupPickerElement.decorators = [
         { type: _angular_core__WEBPACK_IMPORTED_MODULE_26__["Component"], args: [{
                     selector: 'novo-tabbed-group-picker',
-                    template: "<novo-dropdown>\n  <button class=\"tabbed-group-picker-button\"\n          [theme]=\"buttonConfig.theme\"\n          [side]=\"buttonConfig.side\"\n          [icon]=\"buttonConfig.icon\"\n          [loading]=\"loading\">\n    <div class=\"tabbed-group-picker-button-label\">{{ buttonConfig.label }}</div>\n  </button>\n  <!-- todo: search input goes here-->\n  <div class=\"tabbed-group-picker-column-container\">\n    <div class=\"tabbed-group-picker-column left\">\n      <novo-nav theme=\"white\"\n                direction=\"vertical\">\n        <novo-tab *ngFor=\"let schema of schemata\"\n                  [attr.data-automation-id]=\"schema.typeName\"\n                  (activeChange)=\"setActiveSchema(schema)\">\n          <span>{{ schema.typeLabel }}</span><i class=\"bhi-next\"></i>\n        </novo-tab>\n      </novo-nav>\n      <!-- todo: clear all button goes here-->\n    </div>\n    <div class=\"tabbed-group-picker-column right\">\n      <div class=\"quick-select\" *ngIf=\"quickSelectConfig\">\n        <div class=\"quick-select-label\">{{ quickSelectConfig.label }}</div>\n        <novo-list direction=\"vertical\">\n          <novo-list-item *ngFor=\"let quickSelect of quickSelectConfig.items\"\n                          [attr.data-automation-id]=\"quickSelect.label\"\n                          (click)=\"onQuickSelectListItemClicked(quickSelect)\">\n            <item-content>\n              <novo-checkbox [label]=\"quickSelect.label\"\n                             [name]=\"'active'\"\n                             [(ngModel)]=\"quickSelect.active\"\n                             (ngModelChange)=\"onQuickSelectToggled(quickSelect)\"></novo-checkbox>\n            </item-content>\n          </novo-list-item>\n        </novo-list>\n      </div>\n      <!-- todo: add virtual scroll-->\n      <novo-list *ngIf=\"data[activeSchema.typeName].length\"\n                 direction=\"vertical\">\n        <novo-list-item *ngFor=\"let item of data[activeSchema.typeName]\"\n                        [attr.data-automation-id]=\"item[activeSchema.labelField]\"\n                        (click)=\"onDataListItemClicked(activeSchema, item);\">\n          <item-content>\n            <novo-checkbox [label]=\"item[activeSchema.labelField]\"\n                           [name]=\"'selected'\"\n                           [(ngModel)]=\"item.selected\"\n                           (ngModelChange)=\"onItemToggled(activeSchema)\"></novo-checkbox>\n          </item-content>\n        </novo-list-item>\n      </novo-list>\n      <!-- todo: empty state goes here-->\n    </div>\n  </div>\n</novo-dropdown>\n"
+                    template: "<novo-dropdown>\r\n  <button class=\"tabbed-group-picker-button\"\r\n          [theme]=\"buttonConfig.theme\"\r\n          [side]=\"buttonConfig.side\"\r\n          [icon]=\"buttonConfig.icon\"\r\n          [loading]=\"loading\">\r\n    <div class=\"tabbed-group-picker-button-label\">{{ buttonConfig.label }}</div>\r\n  </button>\r\n  <div class=\"novo-category-dropdown-search\" data-automation-id=\"novo-category-dropdown-search\">\r\n    <input type=\"text\" [placeholder]=\"searchLabel\" [value]=\"filterText | async\" (input)=\"onFilter($event)\" />\r\n    <i class=\"bhi-search\" *ngIf=\"!(filterText | async)\"></i>\r\n    <i class=\"bhi-times\" *ngIf=\"filterText | async\" (click)=\"onClearFilter($event)\"></i>\r\n  </div>\r\n  <div class=\"tabbed-group-picker-column-container\">\r\n    <div class=\"tabbed-group-picker-column left\">\r\n      <novo-nav theme=\"white\"\r\n                direction=\"vertical\">\r\n        <novo-tab *ngFor=\"let schema of schemata\"\r\n                  [attr.data-automation-id]=\"schema.typeName\"\r\n                  (activeChange)=\"setActiveSchema(schema)\">\r\n          <span>{{schema.typeLabel}} ({{displayData[schema.typeName].length}})</span><i class=\"bhi-next\"></i>\r\n        </novo-tab>\r\n      </novo-nav>\r\n      <!-- todo: clear all button goes here-->\r\n    </div>\r\n    <div class=\"tabbed-group-picker-column right\">\r\n      <div class=\"quick-select\" *ngIf=\"quickSelectConfig && !(filterText | async)\">\r\n        <div class=\"quick-select-label\">{{ quickSelectConfig.label }}</div>\r\n        <novo-list direction=\"vertical\">\r\n          <novo-list-item *ngFor=\"let quickSelect of quickSelectConfig.items\"\r\n                          [attr.data-automation-id]=\"quickSelect.label\"\r\n                          (click)=\"onQuickSelectListItemClicked(quickSelect)\">\r\n            <item-content>\r\n              <novo-checkbox [label]=\"quickSelect.label\"\r\n                             [name]=\"'active'\"\r\n                             [(ngModel)]=\"quickSelect.active\"\r\n                             (ngModelChange)=\"onQuickSelectToggled(quickSelect)\"></novo-checkbox>\r\n            </item-content>\r\n          </novo-list-item>\r\n        </novo-list>\r\n      </div>\r\n      <!-- todo: add virtual scroll-->\r\n      <novo-list *ngIf=\"displayData[activeSchema.typeName].length\"\r\n                 direction=\"vertical\">\r\n        <novo-list-item *ngFor=\"let item of displayData[activeSchema.typeName]\"\r\n                        [attr.data-automation-id]=\"item[activeSchema.labelField]\"\r\n                        (click)=\"onDataListItemClicked(activeSchema, item);\">\r\n          <item-content>\r\n            <novo-checkbox [label]=\"item[activeSchema.labelField]\"\r\n                           [name]=\"'selected'\"\r\n                           [(ngModel)]=\"item.selected\"\r\n                           (ngModelChange)=\"onItemToggled(activeSchema)\"></novo-checkbox>\r\n          </item-content>\r\n        </novo-list-item>\r\n      </novo-list>\r\n      <!-- TODO: add empty result message for no data in the case of no search -->\r\n      <div class=\"novo-category-dropdown-empty-item\" *ngIf=\"!displayData[activeSchema.typeName].length && (filterText | async)\">\r\n        <!-- TODO: add bhi-users icon if parent-child relationship-->\r\n        <i class=\"bhi-user\"></i>\r\n        <div class=\"empty-item-main-message\">{{ labelService.tabbedGroupPickerEmpty }}</div>\r\n        <div class=\"empty-item-sub-message\">{{ labelService.tabbedGroupClearSuggestion(this.activeSchema.typeLabel) }}</div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</novo-dropdown>\r\n"
                 }] }
     ];
     /** @nocollapse */
-    NovoTabbedGroupPickerElement.ctorParameters = function () { return []; };
+    NovoTabbedGroupPickerElement.ctorParameters = function () { return [
+        { type: NovoLabelService }
+    ]; };
     NovoTabbedGroupPickerElement.propDecorators = {
         buttonConfig: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_26__["Input"] }],
         schemata: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_26__["Input"] }],
@@ -52453,6 +52507,7 @@ var NovoTabbedGroupPickerModule = /** @class */ (function () {
     NovoTabbedGroupPickerModule.decorators = [
         { type: _angular_core__WEBPACK_IMPORTED_MODULE_26__["NgModule"], args: [{
                     imports: [_angular_common__WEBPACK_IMPORTED_MODULE_27__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_24__["FormsModule"], NovoTabModule, NovoListModule, NovoFormExtrasModule, NovoButtonModule, NovoDropdownModule],
+                    providers: [NovoLabelService],
                     declarations: [NovoTabbedGroupPickerElement],
                     exports: [NovoTabbedGroupPickerElement],
                 },] }
@@ -60643,7 +60698,7 @@ var TabbedGroupPickerBasicExample = /** @class */ (function () {
     TabbedGroupPickerBasicExample.decorators = [
         { type: _angular_core__WEBPACK_IMPORTED_MODULE_11__["Component"], args: [{
                     selector: 'tabbed-group-picker-basic-example',
-                    template: "<div class=\"tabbed-group-picker-example\">\n  <novo-tabbed-group-picker [schemata]=\"example_schema\"\n                            [buttonConfig]=\"example_buttonConfig\"\n                            [data]=\"example_data\"\n                            (selectionChange)=\"onSelectionChange($event)\"></novo-tabbed-group-picker>\n  <div class=\"selected-data-wrapper\">\n    <h6>Selected Animal IDs:</h6>\n    <div>{{ selectedAnimals.join(', ') }}</div>\n    <h6>Selected Local Place Names:</h6>\n    <div>{{ selectedPlaces.join(', ') }}</div>\n    <h6>Selected Colors:</h6>\n    <div>{{ selectedColors.join(' | ') }}</div>\n  </div>\n</div>\n",
+                    template: "<div class=\"tabbed-group-picker-example\">\r\n  <novo-tabbed-group-picker [schemata]=\"example_schema\"\r\n                            [buttonConfig]=\"example_buttonConfig\"\r\n                            [data]=\"example_data\"\r\n                            (selectionChange)=\"onSelectionChange($event)\"></novo-tabbed-group-picker>\r\n  <div class=\"selected-data-wrapper\">\r\n    <h6>Selected Animal IDs:</h6>\r\n    <div>{{ selectedAnimals.join(', ') }}</div>\r\n    <h6>Selected Local Place Names:</h6>\r\n    <div>{{ selectedPlaces.join(', ') }}</div>\r\n    <h6>Selected Colors:</h6>\r\n    <div>{{ selectedColors.join(' | ') }}</div>\r\n  </div>\r\n</div>\r\n",
                     styles: [".tabbed-group-picker-example{display:flex;justify-content:space-between}.tabbed-group-picker-example novo-tabbed-group-picker{max-width:40%}.tabbed-group-picker-example .selected-data-wrapper{width:40%}"]
                 }] }
     ];
@@ -60765,7 +60820,7 @@ var TabbedGroupPickerQuickSelectExample = /** @class */ (function () {
     TabbedGroupPickerQuickSelectExample.decorators = [
         { type: _angular_core__WEBPACK_IMPORTED_MODULE_11__["Component"], args: [{
                     selector: 'tabbed-group-picker-quick-select-example',
-                    template: "<div class=\"tabbed-group-picker-example\">\n  <novo-tabbed-group-picker [schemata]=\"example_schema\"\n                            [quickSelectConfig]=\"example_quickSelectConfig\"\n                            [buttonConfig]=\"example_buttonConfig\"\n                            [data]=\"example_data\"\n                            (selectionChange)=\"onSelectionChange($event)\"></novo-tabbed-group-picker>\n  <div class=\"selected-data-wrapper\">\n    <h6>Selected Animal IDs:</h6>\n    <div>{{ selectedAnimals.join(', ') }}</div>\n  </div>\n</div>\n",
+                    template: "<div class=\"tabbed-group-picker-example\">\r\n  <novo-tabbed-group-picker [schemata]=\"example_schema\"\r\n                            [quickSelectConfig]=\"example_quickSelectConfig\"\r\n                            [buttonConfig]=\"example_buttonConfig\"\r\n                            [data]=\"example_data\"\r\n                            (selectionChange)=\"onSelectionChange($event)\"></novo-tabbed-group-picker>\r\n  <div class=\"selected-data-wrapper\">\r\n    <h6>Selected Animal IDs:</h6>\r\n    <div>{{ selectedAnimals.join(', ') }}</div>\r\n  </div>\r\n</div>\r\n",
                     styles: [".tabbed-group-picker-example{display:flex;justify-content:space-between}.tabbed-group-picker-example novo-tabbed-group-picker{max-width:40%}.tabbed-group-picker-example .selected-data-wrapper{width:40%}"]
                 }] }
     ];
@@ -60862,6 +60917,7 @@ var TableColumns = [
         renderer: function (object) {
             return "$ " + Number(object.salary).toFixed(2);
         },
+        rightAlignCellContent: true,
     },
     {
         title: 'Status',
@@ -72107,16 +72163,16 @@ var EXAMPLE_COMPONENTS = {
     'tabbed-group-picker-basic': {
         title: 'Tabbed Group Picker - Basic Example',
         component: TabbedGroupPickerBasicExample,
-        tsSource: "import%20%7B%20Component%20%7D%20from%20'%40angular%2Fcore'%3B%0A%0A%2F**%0A%20*%20%40title%20Tabbed%20Group%20Picker%20-%20Basic%20Example%0A%20*%2F%0A%40Component(%7B%0A%20%20selector%3A%20'tabbed-group-picker-basic-example'%2C%0A%20%20templateUrl%3A%20'tabbed-group-picker-basic-example.html'%2C%0A%20%20styleUrls%3A%20%5B'..%2Ftabbed-group-picker-example.scss'%5D%2C%0A%7D)%0Aexport%20class%20TabbedGroupPickerBasicExample%20%7B%0A%20%20public%20example_schema%20%3D%20%5B%0A%20%20%20%20%7B%0A%20%20%20%20%20%20typeName%3A%20'animals'%2C%0A%20%20%20%20%20%20typeLabel%3A%20'Animals'%2C%0A%20%20%20%20%20%20valueField%3A%20'animalId'%2C%0A%20%20%20%20%20%20labelField%3A%20'name'%2C%0A%20%20%20%20%7D%2C%0A%20%20%20%20%7B%0A%20%20%20%20%20%20typeName%3A%20'places'%2C%0A%20%20%20%20%20%20typeLabel%3A%20'Places'%2C%0A%20%20%20%20%20%20valueField%3A%20'localName'%2C%0A%20%20%20%20%20%20labelField%3A%20'englishName'%2C%0A%20%20%20%20%7D%2C%0A%20%20%20%20%7B%0A%20%20%20%20%20%20typeName%3A%20'colors'%2C%0A%20%20%20%20%20%20typeLabel%3A%20'Colors'%2C%0A%20%20%20%20%20%20valueField%3A%20'rgb'%2C%0A%20%20%20%20%20%20labelField%3A%20'colorName'%2C%0A%20%20%20%20%7D%2C%0A%20%20%5D%3B%0A%20%20public%20example_data%3A%20any%20%3D%20%7B%0A%20%20%20%20animals%3A%20%5B%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%201%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Dog'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%202%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Cat'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%203%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Mouse'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%204%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Horse'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%205%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Cow'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%206%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Pig'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%207%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Chicken'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%208%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Sheep'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%209%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Goat'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%2010%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Goose'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%5D%2C%0A%20%20%20%20places%3A%20%5B%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20localName%3A%20'Roma'%2C%0A%20%20%20%20%20%20%20%20englishName%3A%20'Rome'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20localName%3A%20'Firenze'%2C%0A%20%20%20%20%20%20%20%20englishName%3A%20'Florence'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20localName%3A%20'Munchen'%2C%0A%20%20%20%20%20%20%20%20englishName%3A%20'Munich'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20localName%3A%20'Paris'%2C%0A%20%20%20%20%20%20%20%20englishName%3A%20'Paris'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20localName%3A%20'Sevilla'%2C%0A%20%20%20%20%20%20%20%20englishName%3A%20'Seville'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20localName%3A%20'Athinai'%2C%0A%20%20%20%20%20%20%20%20englishName%3A%20'Athens'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%5D%2C%0A%20%20%20%20colors%3A%20%5B%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20rgb%3A%20'255%2C0%2C0'%2C%0A%20%20%20%20%20%20%20%20colorName%3A%20'Red'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20rgb%3A%20'0%2C255%2C0'%2C%0A%20%20%20%20%20%20%20%20colorName%3A%20'Green'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20rgb%3A%20'0%2C0%2C255'%2C%0A%20%20%20%20%20%20%20%20colorName%3A%20'Blue'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20rgb%3A%20'0%2C0%2C0'%2C%0A%20%20%20%20%20%20%20%20colorName%3A%20'Black'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20rgb%3A%20'255%2C255%2C255'%2C%0A%20%20%20%20%20%20%20%20colorName%3A%20'White'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%5D%2C%0A%20%20%7D%3B%0A%0A%20%20public%20buttonLabel%3A%20string%20%3D%20'Nothing%20Selected'%3B%0A%20%20public%20example_buttonConfig%20%3D%20%7B%0A%20%20%20%20theme%3A%20'select'%2C%0A%20%20%20%20side%3A%20'right'%2C%0A%20%20%20%20icon%3A%20'collapse'%2C%0A%20%20%20%20label%3A%20this.buttonLabel%2C%0A%20%20%20%20selector%3A%20'buttonConfig'%2C%0A%20%20%7D%3B%0A%0A%20%20public%20selectedAnimals%3A%20number%5B%5D%20%3D%20%5B%5D%3B%0A%20%20public%20selectedPlaces%3A%20string%5B%5D%20%3D%20%5B%5D%3B%0A%20%20public%20selectedColors%3A%20string%5B%5D%20%3D%20%5B%5D%3B%0A%0A%20%20onSelectionChange(selectedData)%20%7B%0A%20%20%20%20this.selectedAnimals%20%3D%20selectedData%5B'animals'%5D%3B%0A%20%20%20%20this.selectedPlaces%20%3D%20selectedData%5B'places'%5D%3B%0A%20%20%20%20this.selectedColors%20%3D%20selectedData%5B'colors'%5D%3B%0A%20%20%20%20this.example_buttonConfig.label%20%3D%20this.buildButtonLabel()%3B%0A%20%20%7D%0A%0A%20%20buildButtonLabel()%3A%20string%20%7B%0A%20%20%20%20const%20labelParts%3A%20string%5B%5D%20%3D%20%5B%5D%3B%0A%20%20%20%20this.selectedAnimals.length%20%3F%20labelParts.push(%60Animals%20(%24%7Bthis.selectedAnimals.length%7D)%60)%20%3A%20''%3B%0A%20%20%20%20this.selectedPlaces.length%20%3F%20labelParts.push(%60Places%20(%24%7Bthis.selectedPlaces.length%7D)%60)%20%3A%20''%3B%0A%20%20%20%20this.selectedColors.length%20%3F%20labelParts.push(%60Colors%20(%24%7Bthis.selectedColors.length%7D)%60)%20%3A%20''%3B%0A%20%20%20%20return%20labelParts.join('%2C%20')%20%7C%7C%20'Nothing%20Selected'%3B%0A%20%20%7D%0A%7D%0A",
+        tsSource: "import%20%7B%20Component%20%7D%20from%20'%40angular%2Fcore'%3B%0D%0A%0D%0A%2F**%0D%0A%20*%20%40title%20Tabbed%20Group%20Picker%20-%20Basic%20Example%0D%0A%20*%2F%0D%0A%40Component(%7B%0D%0A%20%20selector%3A%20'tabbed-group-picker-basic-example'%2C%0D%0A%20%20templateUrl%3A%20'tabbed-group-picker-basic-example.html'%2C%0D%0A%20%20styleUrls%3A%20%5B'..%2Ftabbed-group-picker-example.scss'%5D%2C%0D%0A%7D)%0D%0Aexport%20class%20TabbedGroupPickerBasicExample%20%7B%0D%0A%20%20public%20example_schema%20%3D%20%5B%0D%0A%20%20%20%20%7B%0D%0A%20%20%20%20%20%20typeName%3A%20'animals'%2C%0D%0A%20%20%20%20%20%20typeLabel%3A%20'Animals'%2C%0D%0A%20%20%20%20%20%20valueField%3A%20'animalId'%2C%0D%0A%20%20%20%20%20%20labelField%3A%20'name'%2C%0D%0A%20%20%20%20%7D%2C%0D%0A%20%20%20%20%7B%0D%0A%20%20%20%20%20%20typeName%3A%20'places'%2C%0D%0A%20%20%20%20%20%20typeLabel%3A%20'Places'%2C%0D%0A%20%20%20%20%20%20valueField%3A%20'localName'%2C%0D%0A%20%20%20%20%20%20labelField%3A%20'englishName'%2C%0D%0A%20%20%20%20%7D%2C%0D%0A%20%20%20%20%7B%0D%0A%20%20%20%20%20%20typeName%3A%20'colors'%2C%0D%0A%20%20%20%20%20%20typeLabel%3A%20'Colors'%2C%0D%0A%20%20%20%20%20%20valueField%3A%20'rgb'%2C%0D%0A%20%20%20%20%20%20labelField%3A%20'colorName'%2C%0D%0A%20%20%20%20%7D%2C%0D%0A%20%20%5D%3B%0D%0A%20%20public%20example_data%3A%20any%20%3D%20%7B%0D%0A%20%20%20%20animals%3A%20%5B%0D%0A%20%20%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20animalId%3A%201%2C%0D%0A%20%20%20%20%20%20%20%20name%3A%20'Dog'%2C%0D%0A%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20animalId%3A%202%2C%0D%0A%20%20%20%20%20%20%20%20name%3A%20'Cat'%2C%0D%0A%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20animalId%3A%203%2C%0D%0A%20%20%20%20%20%20%20%20name%3A%20'Mouse'%2C%0D%0A%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20animalId%3A%204%2C%0D%0A%20%20%20%20%20%20%20%20name%3A%20'Horse'%2C%0D%0A%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20animalId%3A%205%2C%0D%0A%20%20%20%20%20%20%20%20name%3A%20'Cow'%2C%0D%0A%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20animalId%3A%206%2C%0D%0A%20%20%20%20%20%20%20%20name%3A%20'Pig'%2C%0D%0A%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20animalId%3A%207%2C%0D%0A%20%20%20%20%20%20%20%20name%3A%20'Chicken'%2C%0D%0A%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20animalId%3A%208%2C%0D%0A%20%20%20%20%20%20%20%20name%3A%20'Sheep'%2C%0D%0A%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20animalId%3A%209%2C%0D%0A%20%20%20%20%20%20%20%20name%3A%20'Goat'%2C%0D%0A%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20animalId%3A%2010%2C%0D%0A%20%20%20%20%20%20%20%20name%3A%20'Goose'%2C%0D%0A%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%5D%2C%0D%0A%20%20%20%20places%3A%20%5B%0D%0A%20%20%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20localName%3A%20'Roma'%2C%0D%0A%20%20%20%20%20%20%20%20englishName%3A%20'Rome'%2C%0D%0A%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20localName%3A%20'Firenze'%2C%0D%0A%20%20%20%20%20%20%20%20englishName%3A%20'Florence'%2C%0D%0A%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20localName%3A%20'Munchen'%2C%0D%0A%20%20%20%20%20%20%20%20englishName%3A%20'Munich'%2C%0D%0A%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20localName%3A%20'Paris'%2C%0D%0A%20%20%20%20%20%20%20%20englishName%3A%20'Paris'%2C%0D%0A%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20localName%3A%20'Sevilla'%2C%0D%0A%20%20%20%20%20%20%20%20englishName%3A%20'Seville'%2C%0D%0A%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20localName%3A%20'Athinai'%2C%0D%0A%20%20%20%20%20%20%20%20englishName%3A%20'Athens'%2C%0D%0A%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%5D%2C%0D%0A%20%20%20%20colors%3A%20%5B%0D%0A%20%20%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20rgb%3A%20'255%2C0%2C0'%2C%0D%0A%20%20%20%20%20%20%20%20colorName%3A%20'Red'%2C%0D%0A%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20rgb%3A%20'0%2C255%2C0'%2C%0D%0A%20%20%20%20%20%20%20%20colorName%3A%20'Green'%2C%0D%0A%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20rgb%3A%20'0%2C0%2C255'%2C%0D%0A%20%20%20%20%20%20%20%20colorName%3A%20'Blue'%2C%0D%0A%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20rgb%3A%20'0%2C0%2C0'%2C%0D%0A%20%20%20%20%20%20%20%20colorName%3A%20'Black'%2C%0D%0A%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20rgb%3A%20'255%2C255%2C255'%2C%0D%0A%20%20%20%20%20%20%20%20colorName%3A%20'White'%2C%0D%0A%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%5D%2C%0D%0A%20%20%7D%3B%0D%0A%0D%0A%20%20public%20buttonLabel%3A%20string%20%3D%20'Nothing%20Selected'%3B%0D%0A%20%20public%20example_buttonConfig%20%3D%20%7B%0D%0A%20%20%20%20theme%3A%20'select'%2C%0D%0A%20%20%20%20side%3A%20'right'%2C%0D%0A%20%20%20%20icon%3A%20'collapse'%2C%0D%0A%20%20%20%20label%3A%20this.buttonLabel%2C%0D%0A%20%20%20%20selector%3A%20'buttonConfig'%2C%0D%0A%20%20%7D%3B%0D%0A%0D%0A%20%20public%20selectedAnimals%3A%20number%5B%5D%20%3D%20%5B%5D%3B%0D%0A%20%20public%20selectedPlaces%3A%20string%5B%5D%20%3D%20%5B%5D%3B%0D%0A%20%20public%20selectedColors%3A%20string%5B%5D%20%3D%20%5B%5D%3B%0D%0A%0D%0A%20%20onSelectionChange(selectedData)%20%7B%0D%0A%20%20%20%20this.selectedAnimals%20%3D%20selectedData%5B'animals'%5D%3B%0D%0A%20%20%20%20this.selectedPlaces%20%3D%20selectedData%5B'places'%5D%3B%0D%0A%20%20%20%20this.selectedColors%20%3D%20selectedData%5B'colors'%5D%3B%0D%0A%20%20%20%20this.example_buttonConfig.label%20%3D%20this.buildButtonLabel()%3B%0D%0A%20%20%7D%0D%0A%0D%0A%20%20buildButtonLabel()%3A%20string%20%7B%0D%0A%20%20%20%20const%20labelParts%3A%20string%5B%5D%20%3D%20%5B%5D%3B%0D%0A%20%20%20%20this.selectedAnimals.length%20%3F%20labelParts.push(%60Animals%20(%24%7Bthis.selectedAnimals.length%7D)%60)%20%3A%20''%3B%0D%0A%20%20%20%20this.selectedPlaces.length%20%3F%20labelParts.push(%60Places%20(%24%7Bthis.selectedPlaces.length%7D)%60)%20%3A%20''%3B%0D%0A%20%20%20%20this.selectedColors.length%20%3F%20labelParts.push(%60Colors%20(%24%7Bthis.selectedColors.length%7D)%60)%20%3A%20''%3B%0D%0A%20%20%20%20return%20labelParts.join('%2C%20')%20%7C%7C%20'Nothing%20Selected'%3B%0D%0A%20%20%7D%0D%0A%7D%0D%0A",
         cssSource: "",
-        htmlSource: "%3Cdiv%20class%3D%22tabbed-group-picker-example%22%3E%0A%20%20%3Cnovo-tabbed-group-picker%20%5Bschemata%5D%3D%22example_schema%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5BbuttonConfig%5D%3D%22example_buttonConfig%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5Bdata%5D%3D%22example_data%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20(selectionChange)%3D%22onSelectionChange(%24event)%22%3E%3C%2Fnovo-tabbed-group-picker%3E%0A%20%20%3Cdiv%20class%3D%22selected-data-wrapper%22%3E%0A%20%20%20%20%3Ch6%3ESelected%20Animal%20IDs%3A%3C%2Fh6%3E%0A%20%20%20%20%3Cdiv%3E%7B%7B%20selectedAnimals.join('%2C%20')%20%7D%7D%3C%2Fdiv%3E%0A%20%20%20%20%3Ch6%3ESelected%20Local%20Place%20Names%3A%3C%2Fh6%3E%0A%20%20%20%20%3Cdiv%3E%7B%7B%20selectedPlaces.join('%2C%20')%20%7D%7D%3C%2Fdiv%3E%0A%20%20%20%20%3Ch6%3ESelected%20Colors%3A%3C%2Fh6%3E%0A%20%20%20%20%3Cdiv%3E%7B%7B%20selectedColors.join('%20%7C%20')%20%7D%7D%3C%2Fdiv%3E%0A%20%20%3C%2Fdiv%3E%0A%3C%2Fdiv%3E%0A"
+        htmlSource: "%3Cdiv%20class%3D%22tabbed-group-picker-example%22%3E%0D%0A%20%20%3Cnovo-tabbed-group-picker%20%5Bschemata%5D%3D%22example_schema%22%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5BbuttonConfig%5D%3D%22example_buttonConfig%22%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5Bdata%5D%3D%22example_data%22%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20(selectionChange)%3D%22onSelectionChange(%24event)%22%3E%3C%2Fnovo-tabbed-group-picker%3E%0D%0A%20%20%3Cdiv%20class%3D%22selected-data-wrapper%22%3E%0D%0A%20%20%20%20%3Ch6%3ESelected%20Animal%20IDs%3A%3C%2Fh6%3E%0D%0A%20%20%20%20%3Cdiv%3E%7B%7B%20selectedAnimals.join('%2C%20')%20%7D%7D%3C%2Fdiv%3E%0D%0A%20%20%20%20%3Ch6%3ESelected%20Local%20Place%20Names%3A%3C%2Fh6%3E%0D%0A%20%20%20%20%3Cdiv%3E%7B%7B%20selectedPlaces.join('%2C%20')%20%7D%7D%3C%2Fdiv%3E%0D%0A%20%20%20%20%3Ch6%3ESelected%20Colors%3A%3C%2Fh6%3E%0D%0A%20%20%20%20%3Cdiv%3E%7B%7B%20selectedColors.join('%20%7C%20')%20%7D%7D%3C%2Fdiv%3E%0D%0A%20%20%3C%2Fdiv%3E%0D%0A%3C%2Fdiv%3E%0D%0A"
     },
     'tabbed-group-picker-quick-select': {
         title: 'Tabbed Group Picker - Quick Select Example',
         component: TabbedGroupPickerQuickSelectExample,
-        tsSource: "import%20%7B%20Component%20%7D%20from%20'%40angular%2Fcore'%3B%0A%0A%2F**%0A%20*%20%40title%20Tabbed%20Group%20Picker%20-%20Quick%20Select%20Example%0A%20*%2F%0A%40Component(%7B%0A%20%20selector%3A%20'tabbed-group-picker-quick-select-example'%2C%0A%20%20templateUrl%3A%20'tabbed-group-picker-quick-select-example.html'%2C%0A%20%20styleUrls%3A%20%5B'..%2Ftabbed-group-picker-example.scss'%5D%2C%0A%7D)%0Aexport%20class%20TabbedGroupPickerQuickSelectExample%20%7B%0A%20%20public%20example_schema%20%3D%20%5B%0A%20%20%20%20%7B%0A%20%20%20%20%20%20typeName%3A%20'animals'%2C%0A%20%20%20%20%20%20typeLabel%3A%20'Animals'%2C%0A%20%20%20%20%20%20valueField%3A%20'animalId'%2C%0A%20%20%20%20%20%20labelField%3A%20'name'%2C%0A%20%20%20%20%7D%2C%0A%20%20%5D%3B%0A%20%20public%20example_quickSelectConfig%20%3D%20%7B%0A%20%20%20%20label%3A%20'Quick%20Select'%2C%0A%20%20%20%20items%3A%20%5B%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20typeName%3A%20'animals'%2C%0A%20%20%20%20%20%20%20%20values%3A%20%5B2%5D%2C%0A%20%20%20%20%20%20%20%20label%3A%20'Pure%20Evil'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20typeName%3A%20'animals'%2C%0A%20%20%20%20%20%20%20%20values%3A%20%5B1%2C%206%2C%209%5D%2C%0A%20%20%20%20%20%20%20%20label%3A%20'My%20Pets'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20typeName%3A%20'animals'%2C%0A%20%20%20%20%20%20%20%20all%3A%20true%2C%0A%20%20%20%20%20%20%20%20label%3A%20'All%20Animals'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%5D%2C%0A%20%20%7D%3B%0A%20%20public%20example_data%3A%20any%20%3D%20%7B%0A%20%20%20%20animals%3A%20%5B%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%201%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Dog'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%202%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Cat'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%203%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Mouse'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%204%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Horse'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%205%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Cow'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%206%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Pig'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%207%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Chicken'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%208%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Sheep'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%209%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Goat'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%20%20%7B%0A%20%20%20%20%20%20%20%20animalId%3A%2010%2C%0A%20%20%20%20%20%20%20%20name%3A%20'Goose'%2C%0A%20%20%20%20%20%20%7D%2C%0A%20%20%20%20%5D%2C%0A%20%20%7D%3B%0A%0A%20%20public%20buttonLabel%3A%20string%20%3D%20'Nothing%20Selected'%3B%0A%20%20public%20example_buttonConfig%20%3D%20%7B%0A%20%20%20%20theme%3A%20'select'%2C%0A%20%20%20%20side%3A%20'right'%2C%0A%20%20%20%20icon%3A%20'collapse'%2C%0A%20%20%20%20label%3A%20this.buttonLabel%2C%0A%20%20%20%20selector%3A%20'buttonConfig'%2C%0A%20%20%7D%3B%0A%0A%20%20public%20selectedAnimals%3A%20any%5B%5D%20%3D%20%5B%5D%3B%0A%0A%20%20onSelectionChange(selectedData)%20%7B%0A%20%20%20%20this.selectedAnimals%20%3D%20selectedData%5B'animals'%5D%3B%0A%20%20%20%20this.example_buttonConfig.label%20%3D%20this.buildButtonLabel()%3B%0A%20%20%7D%0A%0A%20%20buildButtonLabel()%3A%20string%20%7B%0A%20%20%20%20return%20this.selectedAnimals.length%20%3F%20%60Animals%20(%24%7Bthis.selectedAnimals.length%7D)%60%20%3A%20'Nothing%20Selected'%3B%0A%20%20%7D%0A%7D%0A",
+        tsSource: "import%20%7B%20Component%20%7D%20from%20'%40angular%2Fcore'%3B%0D%0A%0D%0A%2F**%0D%0A%20*%20%40title%20Tabbed%20Group%20Picker%20-%20Quick%20Select%20Example%0D%0A%20*%2F%0D%0A%40Component(%7B%0D%0A%20%20selector%3A%20'tabbed-group-picker-quick-select-example'%2C%0D%0A%20%20templateUrl%3A%20'tabbed-group-picker-quick-select-example.html'%2C%0D%0A%20%20styleUrls%3A%20%5B'..%2Ftabbed-group-picker-example.scss'%5D%2C%0D%0A%7D)%0D%0Aexport%20class%20TabbedGroupPickerQuickSelectExample%20%7B%0D%0A%20%20public%20example_schema%20%3D%20%5B%0D%0A%20%20%20%20%7B%0D%0A%20%20%20%20%20%20typeName%3A%20'animals'%2C%0D%0A%20%20%20%20%20%20typeLabel%3A%20'Animals'%2C%0D%0A%20%20%20%20%20%20valueField%3A%20'animalId'%2C%0D%0A%20%20%20%20%20%20labelField%3A%20'name'%2C%0D%0A%20%20%20%20%7D%2C%0D%0A%20%20%5D%3B%0D%0A%20%20public%20example_quickSelectConfig%20%3D%20%7B%0D%0A%20%20%20%20label%3A%20'Quick%20Select'%2C%0D%0A%20%20%20%20items%3A%20%5B%0D%0A%20%20%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20typeName%3A%20'animals'%2C%0D%0A%20%20%20%20%20%20%20%20values%3A%20%5B2%5D%2C%0D%0A%20%20%20%20%20%20%20%20label%3A%20'Pure%20Evil'%2C%0D%0A%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20typeName%3A%20'animals'%2C%0D%0A%20%20%20%20%20%20%20%20values%3A%20%5B1%2C%206%2C%209%5D%2C%0D%0A%20%20%20%20%20%20%20%20label%3A%20'My%20Pets'%2C%0D%0A%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20typeName%3A%20'animals'%2C%0D%0A%20%20%20%20%20%20%20%20all%3A%20true%2C%0D%0A%20%20%20%20%20%20%20%20label%3A%20'All%20Animals'%2C%0D%0A%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%5D%2C%0D%0A%20%20%7D%3B%0D%0A%20%20public%20example_data%3A%20any%20%3D%20%7B%0D%0A%20%20%20%20animals%3A%20%5B%0D%0A%20%20%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20animalId%3A%201%2C%0D%0A%20%20%20%20%20%20%20%20name%3A%20'Dog'%2C%0D%0A%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20animalId%3A%202%2C%0D%0A%20%20%20%20%20%20%20%20name%3A%20'Cat'%2C%0D%0A%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20animalId%3A%203%2C%0D%0A%20%20%20%20%20%20%20%20name%3A%20'Mouse'%2C%0D%0A%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20animalId%3A%204%2C%0D%0A%20%20%20%20%20%20%20%20name%3A%20'Horse'%2C%0D%0A%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20animalId%3A%205%2C%0D%0A%20%20%20%20%20%20%20%20name%3A%20'Cow'%2C%0D%0A%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20animalId%3A%206%2C%0D%0A%20%20%20%20%20%20%20%20name%3A%20'Pig'%2C%0D%0A%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20animalId%3A%207%2C%0D%0A%20%20%20%20%20%20%20%20name%3A%20'Chicken'%2C%0D%0A%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20animalId%3A%208%2C%0D%0A%20%20%20%20%20%20%20%20name%3A%20'Sheep'%2C%0D%0A%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20animalId%3A%209%2C%0D%0A%20%20%20%20%20%20%20%20name%3A%20'Goat'%2C%0D%0A%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%20%20%7B%0D%0A%20%20%20%20%20%20%20%20animalId%3A%2010%2C%0D%0A%20%20%20%20%20%20%20%20name%3A%20'Goose'%2C%0D%0A%20%20%20%20%20%20%7D%2C%0D%0A%20%20%20%20%5D%2C%0D%0A%20%20%7D%3B%0D%0A%0D%0A%20%20public%20buttonLabel%3A%20string%20%3D%20'Nothing%20Selected'%3B%0D%0A%20%20public%20example_buttonConfig%20%3D%20%7B%0D%0A%20%20%20%20theme%3A%20'select'%2C%0D%0A%20%20%20%20side%3A%20'right'%2C%0D%0A%20%20%20%20icon%3A%20'collapse'%2C%0D%0A%20%20%20%20label%3A%20this.buttonLabel%2C%0D%0A%20%20%20%20selector%3A%20'buttonConfig'%2C%0D%0A%20%20%7D%3B%0D%0A%0D%0A%20%20public%20selectedAnimals%3A%20any%5B%5D%20%3D%20%5B%5D%3B%0D%0A%0D%0A%20%20onSelectionChange(selectedData)%20%7B%0D%0A%20%20%20%20this.selectedAnimals%20%3D%20selectedData%5B'animals'%5D%3B%0D%0A%20%20%20%20this.example_buttonConfig.label%20%3D%20this.buildButtonLabel()%3B%0D%0A%20%20%7D%0D%0A%0D%0A%20%20buildButtonLabel()%3A%20string%20%7B%0D%0A%20%20%20%20return%20this.selectedAnimals.length%20%3F%20%60Animals%20(%24%7Bthis.selectedAnimals.length%7D)%60%20%3A%20'Nothing%20Selected'%3B%0D%0A%20%20%7D%0D%0A%7D%0D%0A",
         cssSource: "",
-        htmlSource: "%3Cdiv%20class%3D%22tabbed-group-picker-example%22%3E%0A%20%20%3Cnovo-tabbed-group-picker%20%5Bschemata%5D%3D%22example_schema%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5BquickSelectConfig%5D%3D%22example_quickSelectConfig%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5BbuttonConfig%5D%3D%22example_buttonConfig%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5Bdata%5D%3D%22example_data%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20(selectionChange)%3D%22onSelectionChange(%24event)%22%3E%3C%2Fnovo-tabbed-group-picker%3E%0A%20%20%3Cdiv%20class%3D%22selected-data-wrapper%22%3E%0A%20%20%20%20%3Ch6%3ESelected%20Animal%20IDs%3A%3C%2Fh6%3E%0A%20%20%20%20%3Cdiv%3E%7B%7B%20selectedAnimals.join('%2C%20')%20%7D%7D%3C%2Fdiv%3E%0A%20%20%3C%2Fdiv%3E%0A%3C%2Fdiv%3E%0A"
+        htmlSource: "%3Cdiv%20class%3D%22tabbed-group-picker-example%22%3E%0D%0A%20%20%3Cnovo-tabbed-group-picker%20%5Bschemata%5D%3D%22example_schema%22%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5BquickSelectConfig%5D%3D%22example_quickSelectConfig%22%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5BbuttonConfig%5D%3D%22example_buttonConfig%22%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%5Bdata%5D%3D%22example_data%22%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20(selectionChange)%3D%22onSelectionChange(%24event)%22%3E%3C%2Fnovo-tabbed-group-picker%3E%0D%0A%20%20%3Cdiv%20class%3D%22selected-data-wrapper%22%3E%0D%0A%20%20%20%20%3Ch6%3ESelected%20Animal%20IDs%3A%3C%2Fh6%3E%0D%0A%20%20%20%20%3Cdiv%3E%7B%7B%20selectedAnimals.join('%2C%20')%20%7D%7D%3C%2Fdiv%3E%0D%0A%20%20%3C%2Fdiv%3E%0D%0A%3C%2Fdiv%3E%0D%0A"
     },
     'actions-cell': {
         title: 'Actions Cell Example',
